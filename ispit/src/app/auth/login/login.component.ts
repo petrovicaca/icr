@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(form: NgForm){
 
+
     if (form.value._id == "") {
       this.loginService.postProfile(form.value).subscribe((res) => {
         this.resetForm(form);
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
         M.toast({ html: 'Saved successfully', classes: 'rounded' });
       });
     }
+
+
 
     else {
       this.loginService.putProfile(form.value).subscribe((res) => {

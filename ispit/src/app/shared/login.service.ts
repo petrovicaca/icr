@@ -19,7 +19,7 @@ export class LoginService {
     return this.http.post(this.baseURL, profile);
   }
 
-  getProfileeList() {
+  getProfileList() {
     return this.http.get(this.baseURL);
   }
 
