@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('../ispit/node_modules/mongoose');
 
-mongoose.connect('mongodb://localhost:27017/IspitDB', (err) => {
+mongoose.connect('mongodb://localhost:27017/IspitDB',  { useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
     if (!err)
         console.log('MongoDB connection succeeded.');
     else

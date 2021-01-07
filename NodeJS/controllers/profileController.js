@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require('../../ispit/node_modules/express');
 var router = express.Router();
-var ObjectId = require('mongoose').Types.ObjectId;
+var ObjectId = require('../../ispit/node_modules/mongoose').Types.ObjectId;
 
 var { Profile } = require('../models/profile');
 
@@ -27,11 +27,11 @@ router.get('/:id', (req, res) => {
 
 // -------------------------------------------------------POST NEW
 router.post('/', (req, res) => {
-    var emp = new Profile({
+    var profile = new Profile({
         username: req.body.username,
         password: req.body.password
     });
-    emp.save((err, doc) => {
+    profile.save((err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
     });
@@ -42,11 +42,11 @@ router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    var emp = {
+    var profile = {
         username: req.body.username,
         password: req.body.password
     };
-    Profile.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
+    Profile.findByIdAndUpdate(req.params.id, { $set: profile }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Profile Update :' + JSON.stringify(err, undefined, 2)); }
     });
