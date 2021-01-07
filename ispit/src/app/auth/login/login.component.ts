@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { LoginService } from '../../shared/login.service';
-import { Profile } from '../../shared/login.model';
+//import { Profile } from '../../shared/login.model';
 
 declare var M: any;
 
@@ -14,7 +14,7 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       form.reset();
     this.loginService.selectedProfile = {
       _id: "",
-      name: "",
+      username: "",
       password: ""
     }
   }

@@ -1,5 +1,5 @@
 export class Profile{
   _id: string;
-  name: string;
+  username: string;
   password: string;
 }

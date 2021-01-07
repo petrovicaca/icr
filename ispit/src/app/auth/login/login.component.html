@@ -1,16 +1,21 @@
 <mat-card>
 
-  <form (submit)="onLogin(postForm)" #postForm = "ngForm">
+  <form (submit)="onLogin(postForm)" #postForm="ngForm">
+
+    <!--ID POLJE-->
+    <mat-form-field class="invisible example-full-width">
+      <input matInput name="_id" [(ngModel)]="loginService.selectedProfile._id" required #_id="ngModel">
+    </mat-form-field>
 
     <!--USERNAME POLJE-->
     <mat-form-field>
-      <input matInput type="text" name="username" ngModel required #name="ngModel" placeholder="Please enter your username...">
+      <input matInput type="text" name="username" [(ngModel)]="loginService.selectedProfile.username" required #name="ngModel" placeholder="Please enter your username...">
       <mat-error *ngIf="name.invalid">Please enter your username</mat-error>
     </mat-form-field>
 
     <!--PASSWORD POLJE-->
     <mat-form-field>
-      <input matInput type="password" name="password" ngModel required #password="ngModel" placeholder="Please enter your password...">
+      <input matInput type="password" name="password" [(ngModel)]="loginService.selectedProfile.password" required #password="ngModel" placeholder="Please enter your password...">
       <mat-error *ngIf="name.invalid">Please enter your password</mat-error>
     </mat-form-field>
 
