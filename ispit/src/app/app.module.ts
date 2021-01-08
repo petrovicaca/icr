@@ -7,6 +7,7 @@ import { LoginComponent } from './auth/login/login.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //------------------MATERIAL MODULES----------------------
 import { MatInputModule } from  '@angular/material/input';
@@ -39,7 +40,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatExpansionModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
