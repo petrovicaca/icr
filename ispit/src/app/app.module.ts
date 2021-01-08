@@ -17,12 +17,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from  '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './shared/login.service';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
