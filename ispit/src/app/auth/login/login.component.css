@@ -1,4 +1,19 @@
-form { 
-  height: 500px;
-  width: 100%;
+section {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+mat-card  {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+mat-form-field {
+  width: 250px;
 }
