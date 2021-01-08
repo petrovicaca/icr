@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './shared/login.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     HttpClientModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
