@@ -18,6 +18,7 @@ import { MatFormFieldModule } from  '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './shared/login.service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatToolbarModule,
     MatExpansionModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
