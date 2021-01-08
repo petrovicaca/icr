@@ -3,7 +3,7 @@
   <form (submit)="onLogin(postForm)" #postForm="ngForm">
 
     <!--ID POLJE-->
-    <mat-form-field class="invisible example-full-width">
+    <mat-form-field [style.display]="'none'">
       <input matInput name="_id" [(ngModel)]="loginService.selectedProfile._id" required #_id="ngModel">
     </mat-form-field>
 
