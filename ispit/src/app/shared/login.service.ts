@@ -23,6 +23,10 @@ export class LoginService {
     return this.http.get(this.baseURL);
   }
 
+  getSpecificProfile(username: String, password: String){
+    return this.http.get(this.baseURL + `/${username}` + `/${password}`);
+  }
+
   putProfile(profile: Profile) {
     return this.http.put(this.baseURL + `/${profile._id}`, profile);
   }

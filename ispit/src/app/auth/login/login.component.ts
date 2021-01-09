@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 import { Profile } from '../../shared/login.model';
 
 
 import { LoginService } from '../../shared/login.service';
 //import { Profile } from '../../shared/login.model';
+import { Router } from '@angular/router';
 
 declare var M: any;
 
@@ -16,7 +18,7 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -35,32 +37,24 @@ export class LoginComponent implements OnInit {
 
   // Login
   onLogin(form: NgForm){
-    let username: String;
-    let password: String;
+    let username = form.value.username;
+    let password = form.value.password;
 
-    let lista: Profile[];
+    this.loginService.getSpecificProfile(username, password).subscribe((res) => {
+      this.resetForm(form);
 
-
-
-    //lista = JSON.parse(this.loginService.getProfileList);
-
-    // lista = Array.of(this.loginService.getProfileList);
-    /*
-    let duzina = this.loginService.getProfileList.length;
-
-    for(let i = 0; i < duzina; i++){
-      let lokal = this.loginService.getProfileList;
-
-      lista.push();
-    }*/
-
-    //let obj: { string: Profile[]} = JSON.parse()
-
-    //lista = Array.of(this.loginService.getProfileList);
+      // Lokalno sacuvati objekat koji je funkcija vratila
+      this.loginService.selectedProfile = res as Profile;
 
 
+      if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
+        console.log("Uspesno logovanje");
+        this.router.navigate(['']);
+      }
 
-  }
+    });
+}
+
 
   // Create new user
   onRegister(form: NgForm){
