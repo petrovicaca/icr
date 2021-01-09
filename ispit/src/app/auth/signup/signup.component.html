@@ -31,6 +31,20 @@
         <input matInput type="text" name="surname" required placeholder="Your last name" ngModel #surnameInput="ngModel">
         <mat-error *ngIf="surnameInput.hasError('required')">Field should not be empty</mat-error>
       </mat-form-field>
+
+      <!--ADRESS POLJE-->
+      <mat-form-field>
+        <input matInput type="text" name="adress" required placeholder="Your adress" ngModel #adressInput="ngModel">
+        <mat-error *ngIf="adressInput.hasError('required')">Field should not be empty</mat-error>
+      </mat-form-field>
+
+      <!--NUMBER POLJE-->
+      <mat-form-field>
+        <input matInput type="tel" name="number" required placeholder="Your phone number" ngModel #numberInput="ngModel" pattern="^(\+381)?(\s|-)?6(([0-6]|[8-9])\d{7}|(77|78)\d{7}){1}$">
+        <mat-hint> Example: +381 601254671 </mat-hint>
+        <mat-error *ngIf="numberInput.hasError('required')">Field should not be empty</mat-error>
+        <mat-error *ngIf="numberInput.hasError('pattern')">Enter the right format</mat-error>
+      </mat-form-field>
   
       <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid"> Signup </button>
       
