@@ -25,46 +25,6 @@ router.get('/:username/:password', (req, res) => {
     });
 });
     
-    /*
-    Profile.findOne({ username: req.username}).exec(function (err, profile){
-        if (err) return handleError(err);
-        console.log('The author is %s', profile.username);
-    });
-    
-    */
-
-
-
-/*
-router.get('/:username', (req, res) => {
-    Profile.find((err, docs) => {
-        if(!err){
-            res.send.docs.username;
-        } else {
-            console.log('Error in Retriving the Profile with specific Username:' + JSON.stringify(err, undefined, 2)); 
-        }
-    })})
-*/
-/*
-    router.get('/:user', (req, res) => {
-    if (!ObjectId.isValid(req.params.user))
-        //return res.status(400).send(`No record with given username : ${req.params.user}`);
-
-        res.send(db.bios.find(
-            { username :  req.params.user }
-        ))
-
-        
-        Profile.findById(req.params.user, (err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in Retriving Profile:' + JSON.stringify(err, undefined, 2)); }
-        */
-   // });
-//});
-
-
-
-
 // -------------------------------------------------------GET BY ID
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
@@ -98,6 +58,7 @@ router.put('/:id', (req, res) => {
         username: req.body.username,
         password: req.body.password
     };
+    
     Profile.findByIdAndUpdate(req.params.id, { $set: profile }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Profile Update :' + JSON.stringify(err, undefined, 2)); }
