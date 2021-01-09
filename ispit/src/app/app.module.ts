@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //------------------MATERIAL MODULES----------------------
 import { MatInputModule } from  '@angular/material/input';
@@ -17,12 +19,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from  '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './shared/login.service';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { MatIconModule } from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,10 @@ import { LoginService } from './shared/login.service';
     MatToolbarModule,
     MatExpansionModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatSidenavModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
