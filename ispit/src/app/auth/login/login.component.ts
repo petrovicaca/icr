@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Profile } from '../../shared/login.model';
+
 
 import { LoginService } from '../../shared/login.service';
 //import { Profile } from '../../shared/login.model';
@@ -30,9 +32,38 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
+  // Login
   onLogin(form: NgForm){
+    let username: String;
+    let password: String;
+
+    let lista: Profile[];
 
 
+
+    //lista = JSON.parse(this.loginService.getProfileList);
+
+    // lista = Array.of(this.loginService.getProfileList);
+    /*
+    let duzina = this.loginService.getProfileList.length;
+
+    for(let i = 0; i < duzina; i++){
+      let lokal = this.loginService.getProfileList;
+
+      lista.push();
+    }*/
+
+    //let obj: { string: Profile[]} = JSON.parse()
+
+    //lista = Array.of(this.loginService.getProfileList);
+
+
+
+  }
+
+  // Create new user
+  onRegister(form: NgForm){
     if (form.value._id == "") {
       this.loginService.postProfile(form.value).subscribe((res) => {
         this.resetForm(form);
@@ -40,8 +71,6 @@ export class LoginComponent implements OnInit {
         M.toast({ html: 'Saved successfully', classes: 'rounded' });
       });
     }
-
-
 
     else {
       this.loginService.putProfile(form.value).subscribe((res) => {
@@ -52,6 +81,9 @@ export class LoginComponent implements OnInit {
     }
 
   }
+
+
+
 /*
   onEdit(profile: Profile) {
     this.loginService.selectedProfile = profile;

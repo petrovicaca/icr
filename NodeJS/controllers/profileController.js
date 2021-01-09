@@ -1,4 +1,6 @@
 const express = require('../../ispit/node_modules/express');
+const db = require('../db');
+
 var router = express.Router();
 var ObjectId = require('../../ispit/node_modules/mongoose').Types.ObjectId;
 
@@ -6,13 +8,43 @@ var { Profile } = require('../models/profile');
 
 // => localhost:3000/profiles/
 
-// -------------------------------------------------------GET ALL
+// -------------------------------------------------------GET ALL 
 router.get('/', (req, res) => {
     Profile.find((err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error in Retriving Profiles:' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
+/*
+router.get('/:username', (req, res) => {
+    Profile.find((err, docs) => {
+        if(!err){
+            res.send.docs.username;
+        } else {
+            console.log('Error in Retriving the Profile with specific Username:' + JSON.stringify(err, undefined, 2)); 
+        }
+    })})
+*/
+/*
+    router.get('/:user', (req, res) => {
+    if (!ObjectId.isValid(req.params.user))
+        //return res.status(400).send(`No record with given username : ${req.params.user}`);
+
+        res.send(db.bios.find(
+            { username :  req.params.user }
+        ))
+
+        
+        Profile.findById(req.params.user, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Retriving Profile:' + JSON.stringify(err, undefined, 2)); }
+        */
+   // });
+//});
+
+
+
 
 // -------------------------------------------------------GET BY ID
 router.get('/:id', (req, res) => {
@@ -31,6 +63,7 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password
     });
+    // SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE
     profile.save((err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
@@ -62,5 +95,7 @@ router.delete('/:id', (req, res) => {
         else { console.log('Error in Profile Delete :' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
+
 
 module.exports = router;
