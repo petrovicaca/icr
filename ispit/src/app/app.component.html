@@ -1,18 +1,52 @@
+<section>
+<div id="logo">
+    <h1> <a routerLink="/"> LOGO </a> </h1>
+</div> 
+
 <mat-sidenav-container>
     <mat-sidenav #sidenav opened="false">
-        <p> Sidenav </p>
+        <mat-nav-list>
+            <h2> Menu </h2>
+
+            <a mat-list-item routerLink="/" (click)="sidenav.close()"> 
+                <mat-icon> home </mat-icon>
+                Home 
+            </a>
+    
+            <a mat-list-item routerLink="/login" (click)="sidenav.close()">
+                <mat-icon> input </mat-icon> 
+                Login 
+            </a>
+    
+            <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
+                <mat-icon> face </mat-icon>
+                Signup 
+            </a>
+    
+            <!-- KADA BUDEMO DODALI LOGGED IN/OUT
+                <a mat-list-item routerLink="/">
+                    <mat-icon> exit_to_app </mat-icon>
+                    Logout 
+                </a> -->
+        </mat-nav-list>
     </mat-sidenav>
     
     <mat-sidenav-content>
         <mat-toolbar color="primary"> 
             <div> 
-                <a  (click)="sidenav.toggle()"> 
+                <button  mat-raised-button color="primary" (click)="sidenav.toggle()"> 
                     <mat-icon> menu </mat-icon>
-                </a>         
+                </button>         
             </div>
 
-            <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px">
-                <a routerLink=""> Home </a>
+            <!-- PLACEHOLDER ZA SEARCHBAR, NE MOGU LEPO DA IH RASPOREDIM ZA SADA -->
+            <div fxFlex fxLayoutAlign="end">
+                <mat-icon> search </mat-icon>
+                <input matInput type="text" name="search" placeholder="Searchbar">
+            </div>
+        
+            <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
+                <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
             </div>
@@ -21,3 +55,4 @@
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
+</section>

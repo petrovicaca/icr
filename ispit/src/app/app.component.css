@@ -1,9 +1,43 @@
+section {
+    display: flex;
+    flex-direction:  column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+#logo {
+    align-self: center;
+}
+
+#logo a {
+    color: #ff9800;
+}
+
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
 }
 
 mat-sidenav {
     width: 250px;
+    margin: 15px;
+    border-radius: 20px;
+    height: 90%;
+}
+
+mat-sidenav a {
+    color: #ff9800;
+}
+
+mat-sidenav mat-icon {
+    color: #ff9800;
+    margin-right: 15px;
+}
+
+h2 {
+    color: #ff9800;
+    text-align: center;
 }
 
 a {
@@ -13,4 +47,12 @@ a {
 
 a:hover, a:active {
     color: lightgrey;
+}
+
+mat-icon {
+    color: white;
+}
+
+input {
+    width: 400px;
 }
