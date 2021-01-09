@@ -1,1 +1,23 @@
-<router-outlet> </router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="false">
+        <p> Sidenav </p>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        <mat-toolbar color="primary"> 
+            <div> 
+                <a  (click)="sidenav.toggle()"> 
+                    <mat-icon> menu </mat-icon>
+                </a>         
+            </div>
+
+            <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px">
+                <a routerLink=""> Home </a>
+                <a routerLink="/login"> Login </a>
+                <a routerLink="/signup"> Signup </a>
+            </div>
+        </mat-toolbar>
+        
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
