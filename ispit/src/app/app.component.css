@@ -6,10 +6,15 @@ section {
     width: 100%;
     margin: auto;
     background-image: url('../../../Res/wallhaven-5w5kx8.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 mat-sidenav-container {
     background-image: url('../../../Res/wallhaven-5w5kx8.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 #logo {
