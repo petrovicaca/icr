@@ -18,6 +18,8 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
+
+
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -50,6 +52,10 @@ export class LoginComponent implements OnInit {
       if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
         console.log("Uspesno logovanje");
         this.router.navigate(['']);
+      } else if(password !== this.loginService.selectedProfile.password){
+        // NAPRAVITI DA ISPIŠE GREŠKU KOD PASSWORDA
+      } else {
+        // Korisnik ne postoji
       }
 
     });

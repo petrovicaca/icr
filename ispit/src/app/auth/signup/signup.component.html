@@ -1,18 +1,18 @@
 <section>
 <mat-card fxLayoutAlign="center center">
     <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" #f="ngForm" (ngSubmit)="onSubmit(f)">
-  
+
       <!--ID POLJE-->
       <mat-form-field [style.display]="'none'">
         <input matInput name="_id" required>
       </mat-form-field>
-  
+
       <!--USERNAME POLJE-->
       <mat-form-field>
         <input matInput type="text" name="username" required placeholder="Desired username" ngModel #usernameInput="ngModel">
         <mat-error *ngIf="usernameInput.hasError('required')">Field should not be empty</mat-error>
       </mat-form-field>
-  
+
       <!--PASSWORD POLJE-->
       <mat-form-field hintLabel="Please enter a minimum of 6 characters!">
         <input matInput type="password" name="password" required minlength="6" placeholder="Desired password" ngModel #passwordInput="ngModel">
@@ -45,9 +45,9 @@
         <mat-error *ngIf="numberInput.hasError('required')">Field should not be empty</mat-error>
         <mat-error *ngIf="numberInput.hasError('pattern')">Enter the right format</mat-error>
       </mat-form-field>
-  
+
       <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid"> Signup </button>
-      
+
       <button [routerLink]="'/login'" mat-raised-button color="primary" type="submit" [disabled]="f.valid"> Allready have an account? Click here to login </button>
     </form>
 </mat-card>
