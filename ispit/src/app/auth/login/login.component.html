@@ -19,7 +19,11 @@
       <mat-error *ngIf="password.invalid">Please enter your password</mat-error>
     </mat-form-field>
 
+
     <button mat-raised-button color="primary" type="submit">Login</button>
+    <!--<mat-label *ngIf="errorExists">{{errorText}}</mat-label>-->
+    <mat-label style="color:red" id="ertx"></mat-label>
+    <mat-label style="color:red" id="ertx2"></mat-label>
 
     <button [routerLink]="'/signup'" mat-raised-button color="primary" type="submit"> Don't have an account? Click here to signup </button>
   </form>

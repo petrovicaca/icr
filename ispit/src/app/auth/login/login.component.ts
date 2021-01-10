@@ -18,8 +18,6 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
-
-
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -48,19 +46,18 @@ export class LoginComponent implements OnInit {
       // Lokalno sacuvati objekat koji je funkcija vratila
       this.loginService.selectedProfile = res as Profile;
 
-
+      document.getElementById("ertx").textContent = "This combination of username";
+      document.getElementById("ertx2").textContent = " & password doesn't exist.";
       if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
-        console.log("Uspesno logovanje");
         this.router.navigate(['']);
-      } else if(password !== this.loginService.selectedProfile.password){
-        // NAPRAVITI DA ISPIŠE GREŠKU KOD PASSWORDA
-      } else {
-        // Korisnik ne postoji
       }
 
     });
 }
 
+  errorMessage(){
+
+  }
 
   // Create new user
   onRegister(form: NgForm){
