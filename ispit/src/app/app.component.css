@@ -70,3 +70,16 @@ mat-icon {
 input {
     width: 400px;
 }
+
+#chatbot {
+    height: fit-content;
+    position: absolute;
+    right: 105px;
+    bottom: 110px;
+    background-color: #ea80fc;
+}
+
+#chatbot mat-icon {
+    transform: scale(1.5);
+    color: white;
+}
