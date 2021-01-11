@@ -2,8 +2,8 @@
 
 @include mat-core();
 
-$my-theme-primary: mat-palette($mat-purple, A100);
-$my-theme-accent: mat-palette($mat-purple, A200);
+$my-theme-primary: mat-palette($mat-blue-gray, 400);
+$my-theme-accent: mat-palette($mat-blue-gray, 500);
 $my-theme-warn: mat-palette($mat-red);
 
 $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);

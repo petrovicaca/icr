@@ -22,7 +22,7 @@ mat-sidenav-container {
 }
 
 #logo a {
-    color: #ea80fc;
+    color: #78909c;
 }
 
 #logo h1 {
@@ -41,16 +41,16 @@ mat-sidenav {
 }
 
 mat-sidenav a {
-    color: #ea80fc;
+    color: #78909c;
 }
 
 mat-sidenav mat-icon {
-    color:#ea80fc;
+    color:#78909c;
     margin-right: 15px;
 }
 
 h2 {
-    color:#ea80fc;
+    color:#78909c;
     text-align: center;
 }
 
@@ -76,7 +76,7 @@ input {
     position: absolute;
     right: 105px;
     bottom: 110px;
-    background-color: #ea80fc;
+    background-color: #78909c;
 }
 
 #chatbot mat-icon {
