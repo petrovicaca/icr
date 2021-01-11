@@ -24,7 +24,15 @@ router.get('/:username/:password', (req, res) => {
         else { console.log('Error in Retriving Profiles:' + JSON.stringify(err, undefined, 2)); }    
     });
 });
-    
+
+router.get('/:username/', (req, res) => {
+    Profile.findOne({ username: req.params.username}, (err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving Profiles:' + JSON.stringify(err, undefined, 2)); }    
+    });
+});
+
+
 // -------------------------------------------------------GET BY ID
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
@@ -38,15 +46,31 @@ router.get('/:id', (req, res) => {
 
 // -------------------------------------------------------POST NEW
 router.post('/', (req, res) => {
+
+    error = false;
+
     var profile = new Profile({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        address: req.body.address,
+        phone: req.body.phone
     });
-    // SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE SAVE
-    profile.save((err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
+   
+    Profile.findOne({username: profile.username}, (err, docs) => {
+        if (!err && docs != null) {
+            res.send("User already exists!");
+            error = true;
+        }
+        else {
+            profile.save((err, doc) => {
+                if (!err) { res.send(doc); }
+                else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
+            });
+        }
     });
+
 });
 
 // -------------------------------------------------------EDIT OLD
