@@ -27,6 +27,10 @@ export class LoginService {
     return this.http.get(this.baseURL + `/${username}` + `/${password}`);
   }
 
+  getByUsername(username: String){
+    return this.http.get(this.baseURL + `/${username}`);
+  }
+
   putProfile(profile: Profile) {
     return this.http.put(this.baseURL + `/${profile._id}`, profile);
   }

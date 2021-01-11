@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
 import { Profile } from '../../shared/login.model';
 
-
 import { LoginService } from '../../shared/login.service';
-//import { Profile } from '../../shared/login.model';
 import { Router } from '@angular/router';
 
 declare var M: any;
@@ -30,7 +27,11 @@ export class LoginComponent implements OnInit {
     this.loginService.selectedProfile = {
       _id: "",
       username: "",
-      password: ""
+      password: "",
+      firstname: "",
+      lastname: "",
+      address: "",
+      phone: ""
     }
   }
 
@@ -46,8 +47,7 @@ export class LoginComponent implements OnInit {
       // Lokalno sacuvati objekat koji je funkcija vratila
       this.loginService.selectedProfile = res as Profile;
 
-      document.getElementById("ertx").textContent = "This combination of username";
-      document.getElementById("ertx2").textContent = " & password doesn't exist.";
+      document.getElementById("ertx").textContent = "This combination of username & password doesn't exist.";
       if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
         this.router.navigate(['']);
       }
@@ -58,27 +58,6 @@ export class LoginComponent implements OnInit {
   errorMessage(){
 
   }
-
-  // Create new user
-  onRegister(form: NgForm){
-    if (form.value._id == "") {
-      this.loginService.postProfile(form.value).subscribe((res) => {
-        this.resetForm(form);
-
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
-      });
-    }
-
-    else {
-      this.loginService.putProfile(form.value).subscribe((res) => {
-        this.resetForm(form);
-
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
-      });
-    }
-
-  }
-
 
 
 /*

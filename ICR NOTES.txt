@@ -53,3 +53,73 @@ export class EmployeeService {
 
 }
 
+
+
+router.post('/', (req, res) => {
+
+    var profile = new Profile({
+        username: req.body.username,
+        password: req.body.password,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        address: req.body.address,
+        phone: req.body.phone
+    });
+
+    //console.log("USERNAME: " + profile.username);
+
+    var profile2 = new Profile({
+        username: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+        address: "",
+        phone: ""
+    });
+   
+    Profile.findOne({username: profile.username}, (err, docs) => {
+        if (!err && docs != null) {
+
+            res.send("User already exists!");
+            /*
+            console.log("KONZOLA: " + JSON.stringify(docs.username));
+            
+            profile2.username = JSON.stringify(docs.username);
+            
+            if(profile2.username != profile.username){
+                console.log("2222222222222: " + profile2.username);
+                profile.save((err, doc) => {
+                    if (!err) { res.send(doc); }
+                    else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
+                });
+            } else {
+                console.log("ERRXXX");
+            }*/
+        }
+        else {
+            // samo sačuvati profil
+            profile.save((err, doc) => {
+                if (!err) { res.send(doc); }
+                else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
+            });
+        }
+    });
+
+});
+
+
+
+
+
+/*
+    this.loginService.getSpecificProfile(profile.username, profile.password).subscribe((res) => {
+      this.loginService.selectedProfile = res as Profile;
+    });
+
+
+    if(profile.username === this.loginService.selectedProfile.username){
+      document.getElementById("ertx").textContent = "This username already exists";
+    } else {
+      this.loginService.postProfile(profile).subscribe((res) => {});
+    }
+*/

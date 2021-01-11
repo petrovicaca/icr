@@ -1,6 +1,6 @@
 <section>
 <mat-card fxLayoutAlign="center center">
-    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" #f="ngForm" (submit)="onRegister(f)">
 
       <!--ID POLJE-->
       <mat-form-field [style.display]="'none'">
@@ -22,31 +22,32 @@
 
       <!--NAME POLJE-->
       <mat-form-field>
-        <input matInput type="text" name="name" required placeholder="Your first name" ngModel #nameInput="ngModel">
+        <input matInput type="text" name="firstname" required placeholder="Your first name" ngModel #nameInput="ngModel">
         <mat-error *ngIf="nameInput.hasError('required')">Field should not be empty</mat-error>
       </mat-form-field>
 
       <!--SURNAME POLJE-->
       <mat-form-field>
-        <input matInput type="text" name="surname" required placeholder="Your last name" ngModel #surnameInput="ngModel">
+        <input matInput type="text" name="lastname" required placeholder="Your last name" ngModel #surnameInput="ngModel">
         <mat-error *ngIf="surnameInput.hasError('required')">Field should not be empty</mat-error>
       </mat-form-field>
 
       <!--ADRESS POLJE-->
       <mat-form-field>
-        <input matInput type="text" name="adress" required placeholder="Your adress" ngModel #adressInput="ngModel">
+        <input matInput type="text" name="address" required placeholder="Your address" ngModel #adressInput="ngModel">
         <mat-error *ngIf="adressInput.hasError('required')">Field should not be empty</mat-error>
       </mat-form-field>
 
       <!--NUMBER POLJE-->
       <mat-form-field>
-        <input matInput type="tel" name="number" required placeholder="Your phone number" ngModel #numberInput="ngModel" pattern="^(\+381)?(\s|-)?6(([0-6]|[8-9])\d{7}|(77|78)\d{7}){1}$">
-        <mat-hint> Example: +381 601254671 </mat-hint>
-        <mat-error *ngIf="numberInput.hasError('required')">Field should not be empty</mat-error>
-        <mat-error *ngIf="numberInput.hasError('pattern')">Enter the right format</mat-error>
+        <input matInput type="tel" name="phone" required placeholder="Your phone number" ngModel #phoneInput="ngModel" pattern="^(\+381)?(\s|-)?6(([0-6]|[8-9])\d{7}|(77|78)\d{7}){1}$">
+        <mat-hint> Example: +381 601 254 671 </mat-hint>
+        <mat-error *ngIf="phoneInput.hasError('required')">Field should not be empty</mat-error>
+        <mat-error *ngIf="phoneInput.hasError('pattern')">Enter the right format</mat-error>
       </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid"> Signup </button>
+      <mat-label style="color:red" id="ertx"></mat-label>
 
       <button [routerLink]="'/login'" mat-raised-button color="primary" type="submit" [disabled]="f.valid"> Allready have an account? Click here to login </button>
     </form>
