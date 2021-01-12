@@ -16,7 +16,8 @@ import {Observable} from 'rxjs/Observable';
 })
 export class CandyComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ["name", "weight", "calories", "picture", "type"];
+  displayedColumns = ["name", "weight", "price", "picture", "type"];
+
   candySource; //new MatTableDataSource<Candy>();
 
   @ViewChild(MatSort, {static: false}) sort : MatSort;

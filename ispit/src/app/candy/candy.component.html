@@ -15,13 +15,13 @@
     <!-- WEIGHT COLUMN -->
     <ng-container matColumnDef="weight">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.weight }}g </mat-cell>
     </ng-container>
 
     <!-- CALORIES COLUMN -->
-    <ng-container matColumnDef="calories">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Calories </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element.calories }} </mat-cell>
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.price }}$ </mat-cell>
     </ng-container>
 
     <!-- PICTURE COLUMN -->

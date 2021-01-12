@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
     var candy = new Candy({
         name: req.body.name,
         weight: req.body.weight,
-        calories: req.body.calories,
+        price: req.body.price,
         picture: req.body.picture,
         type: req.body.type
     });
@@ -76,7 +76,7 @@ router.put('/:id', (req, res) => {
     var candy = {
         name: req.body.name,
         weight: req.body.weight,
-        calories: req.body.calories,
+        price: req.body.price,
         picture: req.body.picture,
         type: req.body.type
     };

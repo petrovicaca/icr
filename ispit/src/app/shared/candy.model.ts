@@ -1,8 +1,8 @@
 export interface Candy {
     id: string;
     name: string;
-    weight: string;
-    calories: string;
+    weight: number;
+    price: number;
     picture: string;
     type: 'chocolate' | 'candies' | 'caramels' | 'sour candy';
 }
