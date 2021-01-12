@@ -4,7 +4,7 @@
 
     <!--ID POLJE-->
     <mat-form-field [style.display]="'none'">
-      <input matInput name="_id" [(ngModel)]="loginService.selectedProfile._id" required #_id="ngModel">
+      <input matInput name="id" [(ngModel)]="loginService.selectedProfile.id" required #id="ngModel">
     </mat-form-field>
 
     <!--USERNAME POLJE-->
@@ -21,7 +21,7 @@
 
 
     <button mat-raised-button color="primary" type="submit">Login</button>
-    <!--<mat-label *ngIf="errorExists">{{errorText}}</mat-label>-->
+    <!--<mat-label >*ngIf="errorExists"{{errorText}}</mat-label>-->
     <mat-label style="color:red" id="ertx"></mat-label>
 
     <button [routerLink]="'/signup'" mat-raised-button color="primary" type="submit"> Don't have an account? Click here to signup </button>

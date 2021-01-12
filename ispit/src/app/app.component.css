@@ -8,12 +8,15 @@ section {
     background-image: url('../../../Res/welcomebg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 mat-sidenav-container {
     background-image: url('../../../Res/welcomebg.jpg');
+
     background-repeat: no-repeat;
     background-size: cover;
+
 
 }
 
@@ -36,6 +39,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 mat-sidenav {
     width: 250px;
     margin: 20px;
+    margin-top: 70px;
     border-radius: 20px;
     height: 90%;
 }

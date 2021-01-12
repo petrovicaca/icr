@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   onRegister(form: NgForm){
 
     let profile: Profile = {
-      _id: form.value._id,
+      id: form.value.id,
       username: form.value.username,
       password: form.value.password,
       firstname: form.value.firstname,
@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
     if (form)
       form.reset();
     this.loginService.selectedProfile = {
-      _id: "",
+      id: "",
       username: "",
       password: "",
       firstname: "",

@@ -1,54 +1,55 @@
 <section>
-<div id="logo">
+<!--<div id="logo">
     <h1> <a routerLink="/"> <mat-icon> cake </mat-icon> LOGO <mat-icon> cake </mat-icon> </a> </h1>
-</div> 
+</div>
+-->
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav opened="false">
         <mat-nav-list>
             <h2> Menu </h2>
 
-            <a mat-list-item routerLink="/" (click)="sidenav.close()"> 
+            <a mat-list-item routerLink="/" (click)="sidenav.close()">
                 <mat-icon> home </mat-icon>
-                Home 
-            </a>
-    
-            <a mat-list-item routerLink="/login" (click)="sidenav.close()">
-                <mat-icon> input </mat-icon> 
-                Login 
-            </a>
-    
-            <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
-                <mat-icon> face </mat-icon>
-                Signup 
+                Home
             </a>
 
-            <a mat-list-item routerLink="/profile" (click)="sidenav.close()"> 
-                <mat-icon> person </mat-icon>
-                Profile 
+            <a mat-list-item routerLink="/login" (click)="sidenav.close()">
+                <mat-icon> input </mat-icon>
+                Login
             </a>
-    
+
+            <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
+                <mat-icon> face </mat-icon>
+                Signup
+            </a>
+
+            <a mat-list-item routerLink="/profile" (click)="sidenav.close()">
+                <mat-icon> person </mat-icon>
+                Profile
+            </a>
+
             <!-- KADA BUDEMO DODALI LOGGED IN/OUT
                 <a mat-list-item routerLink="/">
                     <mat-icon> exit_to_app </mat-icon>
-                    Logout 
+                    Logout
                 </a> -->
         </mat-nav-list>
     </mat-sidenav>
-    
+
     <mat-sidenav-content>
-        <mat-toolbar color="primary"> 
-            <div> 
-                <button  mat-raised-button color="primary" (click)="sidenav.toggle()"> 
+        <mat-toolbar color="primary">
+            <div>
+                <button  mat-raised-button color="primary" (click)="sidenav.toggle()">
                     <mat-icon> menu </mat-icon>
-                </button>         
+                </button>
             </div>
 
             <!-- PLACEHOLDER ZA SEARCHBAR -->
             <div fxFlex fxLayoutAlign="end">
                 <mat-icon> search </mat-icon>
             </div>
-        
+
             <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
                 <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
@@ -57,7 +58,7 @@
         </mat-toolbar>
 
         <button mat-raised-button id="chatbot"> <mat-icon> forum </mat-icon> </button>
-        
+
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

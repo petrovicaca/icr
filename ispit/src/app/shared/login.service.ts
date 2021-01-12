@@ -32,11 +32,11 @@ export class LoginService {
   }
 
   putProfile(profile: Profile) {
-    return this.http.put(this.baseURL + `/${profile._id}`, profile);
+    return this.http.put(this.baseURL + `/${profile.id}`, profile);
   }
 
-  deleteProfile(_id: string) {
-    return this.http.delete(this.baseURL + `/${_id}`);
+  deleteProfile(id: string) {
+    return this.http.delete(this.baseURL + `/${id}`);
   }
 
 }

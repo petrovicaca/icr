@@ -15,6 +15,8 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
+  // loggedInUser: Profile;
+
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
     if (form)
       form.reset();
     this.loginService.selectedProfile = {
-      _id: "",
+      id: "",
       username: "",
       password: "",
       firstname: "",
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
       this.loginService.selectedProfile = res as Profile;
 
       document.getElementById("ertx").textContent = "This combination of username & password doesn't exist.";
+
       if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
         this.router.navigate(['']);
       }
