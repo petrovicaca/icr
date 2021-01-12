@@ -9,7 +9,16 @@ import { Profile } from './login.model';
 @Injectable()
 export class LoginService {
 
-  selectedProfile: Profile;
+  selectedProfile: Profile ={
+      id: "",
+      username: "",
+      password: "",
+      firstname: "",
+      lastname: "",
+      address: "",
+      phone: ""
+  };
+
   profiles: Profile[];
   readonly baseURL = 'http://localhost:3000/profiles';
 
