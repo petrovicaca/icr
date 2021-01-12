@@ -6,16 +6,18 @@ import { CandyService } from '../shared/candy.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-candy',
   templateUrl: './candy.component.html',
-  styleUrls: ['./candy.component.css']
+  styleUrls: ['./candy.component.css'],
+  providers: [CandyService]
 })
 export class CandyComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ["name", "weight", "calories", "picture", "type", "order"];
-  candySource = new MatTableDataSource<Candy>();
+  displayedColumns = ["name", "weight", "calories", "picture", "type"];
+  candySource; //new MatTableDataSource<Candy>();
 
   @ViewChild(MatSort, {static: false}) sort : MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator : MatPaginator;
@@ -23,7 +25,16 @@ export class CandyComponent implements OnInit, AfterViewInit {
   constructor(private candyService : CandyService) { }
 
   ngOnInit(): void {
-    this.candySource.data = this.candyService.getCandy();
+    //this.candySource.data = this.candyService.getCandyList();
+
+    this.candyService.getCandyList().subscribe(
+      resp => {
+        this.candySource = new MatTableDataSource(resp);
+      }, err => {
+        console.log(err);
+      }
+    )
+
   }
 
   ngAfterViewInit() {
