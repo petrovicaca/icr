@@ -6,7 +6,10 @@ var Candy = mongoose.model('Candy', {
     weight: { type: Number },
     price: { type: Number },
     picture: { type: String },
-    type: { type: String }
+    category: { type: String },
+    description: { type: String },
+    shipping: { type: Number},
+    rating: { type: Number}
 });
 
 module.exports = { Candy };

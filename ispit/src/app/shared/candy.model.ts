@@ -4,5 +4,8 @@ export interface Candy {
     weight: number;
     price: number;
     picture: string;
-    type: 'chocolate' | 'candies' | 'caramels' | 'sour candy';
+    category: 'chocolate' | 'candies' | 'caramels' | 'sour candy';
+    description: string;
+    shipping: number;
+    rating: number;
 }

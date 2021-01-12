@@ -50,7 +50,10 @@ router.post('/', (req, res) => {
         weight: req.body.weight,
         price: req.body.price,
         picture: req.body.picture,
-        type: req.body.type
+        category: req.body.category,
+        description: req.body.description,
+        shipping: req.body.shipping,
+        rating: req.body.rating
     });
    
     Candy.findOne({name: candy.name}, (err, docs) => {
@@ -78,7 +81,10 @@ router.put('/:id', (req, res) => {
         weight: req.body.weight,
         price: req.body.price,
         picture: req.body.picture,
-        type: req.body.type
+        category: req.body.category,
+        description: req.body.description,
+        shipping: req.body.shipping,
+        rating: req.body.rating
     };
     
     Profile.findByIdAndUpdate(req.params.id, { $set: candy }, { new: true }, (err, doc) => {

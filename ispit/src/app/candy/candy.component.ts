@@ -16,7 +16,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class CandyComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ["name", "weight", "price", "picture", "type"];
+  displayedColumns = ["name", "weight", "price", "picture", "category", "description", "shipping", "rating", "order"];
 
   candySource; //new MatTableDataSource<Candy>();
 
