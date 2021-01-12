@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   // Login
   onLogin(form: NgForm){
     let username = form.value.username;
