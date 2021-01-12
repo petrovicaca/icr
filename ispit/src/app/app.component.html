@@ -24,9 +24,14 @@
                 Signup
             </a>
 
-            <a mat-list-item routerLink="/profile" (click)="sidenav.close()">
+            <a mat-list-item (click)="openProfile()" (click)="sidenav.close()">
                 <mat-icon> person </mat-icon>
                 Profile
+            </a>
+
+            <a mat-list-item routerLink="/candy" (click)="sidenav.close()">
+                <mat-icon> cake </mat-icon>
+                Candy
             </a>
 
             <!-- KADA BUDEMO DODALI LOGGED IN/OUT
@@ -54,6 +59,8 @@
                 <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
+                <a routerLink="/candy"> Candy </a>
+                <button mat-raised-button color="accent" (click)="openProfile()" > Profile </button>
             </div>
         </mat-toolbar>
 

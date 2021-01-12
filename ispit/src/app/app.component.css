@@ -65,8 +65,8 @@ input {
 #chatbot {
     height: fit-content;
     position: absolute;
-    right: 105px;
-    bottom: 110px;
+    right: 55px;
+    bottom: 35px;
     background-color: #78909c;
 }
 
