@@ -9,6 +9,64 @@ import { Profile } from './login.model';
 @Injectable()
 export class LoginService {
 
+  //STATIC PROFILE DUMMY DATA
+
+  static dummyUserList: Array<Profile> = [
+    {
+      id: "1",
+      username: "test1@test.com ",
+      password: "test12345",
+      firstname: "Test1",
+      lastname: "Test1",
+      address: "Test adress 1",
+      phone: "Test phone number 1" 
+    },
+    {
+      id: "2",
+      username: "test2@test.com ",
+      password: "test6789",
+      firstname: "Test 2",
+      lastname: "Test 2",
+      address: "Test adress 2",
+      phone: "Test phone number 2"
+    }
+  ]
+
+  getUserName(user: Profile) : string {
+    return user.username;
+  }
+
+  currentUser: Profile = LoginService.dummyUserList[0];
+
+  getUserById(id: string) : Profile {
+    var foundUser : Profile;
+    LoginService.dummyUserList.forEach(user => {
+      if(user.id == id) {
+        foundUser = user;
+      }
+    });
+
+    this.currentUser = foundUser;
+    return foundUser;
+  }
+
+  getUser(username: string) : Profile {
+    this.currentUser = LoginService.dummyUserList.find(userToFind => userToFind.username == username);
+    return this.currentUser;
+  }
+
+  registerUser(id: string, username: string, password: string, firstname: string, lastname: string, address: string, phone: string) : Profile {
+    var user: Profile = {id, username, password, firstname, lastname, address, phone };
+
+    LoginService.dummyUserList.push(user);
+
+    this.currentUser = user;
+    console.log(user);
+    return user;
+  }
+
+  //END OF STATIC DUMMY DATA
+
   selectedProfile: Profile ={
       id: "",
       username: "",

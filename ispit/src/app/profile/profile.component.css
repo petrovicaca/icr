@@ -1,0 +1,8 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-subtitle {
+    margin-bottom: 3vh;
+    font-size: 0.75em;
+}

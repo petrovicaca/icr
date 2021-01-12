@@ -45,7 +45,7 @@
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <div>
-                <button  mat-raised-button color="primary" (click)="sidenav.toggle()">
+                <button  mat-raised-button color="accent" (click)="sidenav.toggle()">
                     <mat-icon> menu </mat-icon>
                 </button>
             </div>
@@ -60,7 +60,7 @@
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
                 <a routerLink="/candy"> Candy </a>
-                <button mat-raised-button color="accent" (click)="openProfile()" > Profile </button>
+                <button mat-raised-button color="accent" (click)="openProfile()" > {{ this.loginService.currentUser.username }} </button>
             </div>
         </mat-toolbar>
 

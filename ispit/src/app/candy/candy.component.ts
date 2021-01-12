@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CandyComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ["name", "weight", "calories", "picture", "type"];
+  displayedColumns = ["name", "weight", "calories", "picture", "type", "order"];
   candySource = new MatTableDataSource<Candy>();
 
   @ViewChild(MatSort, {static: false}) sort : MatSort;

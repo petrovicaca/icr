@@ -1,8 +1,69 @@
-<section>
-    <h1 mat-dialog-title> Profile </h1>
-    <mat-dialog-content> username </mat-dialog-content>
-    <mat-dialog-actions>
-        <button mat-button [mat-dialog-close]> Yes </button>
-        <button mat-button [mat-dialog-close]> No </button>
-    </mat-dialog-actions>
-</section>
+<div fxLayoutAlign="space-between">
+    <button mat-button [mat-dialog-close]="true">
+        <mat-icon matListIcon> close </mat-icon>
+    </button>
+
+    <button mat-icon-button>
+        <mat-icon matListIcon (click)="this.isEditing = !this.isEditing"> edit </mat-icon>
+    </button>
+
+    <!-- *ngIf="this.profileForInput.id == this.loginService.currentUser.id" -->
+</div>
+<br>
+
+<mat-dialog-content>
+    <form fxLayout="column" fxLayoutGap="3vh" #editForm="ngForm" (ngSubmit)="finishEditing(editForm)">
+
+    <!-- USERNAME -->
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
+            <mat-icon>email</mat-icon>
+            <div fxLayout="column" *ngIf="!this.isEditing">
+                <mat-card-subtitle>Username</mat-card-subtitle>
+                <span>{{ this.loginService.currentUser.username }}</span>
+            </div>
+
+            <mat-form-field *ngIf="this.isEditing">
+                <input matInput type="text" placeholder="Your username" ngModel name="username" [(ngModel)]="this.loginService.currentUser.username" username required #usernameInput="ngModel">
+                <mat-error *ngIf="usernameInput.hasError('required')">Username is required!</mat-error>
+            </mat-form-field>
+        </div>
+    </mat-card>
+
+    <!-- Password -->
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
+            <mat-icon>lock</mat-icon>
+            <div fxLayout="column" *ngIf="!this.isEditing">
+                <mat-card-subtitle>Password</mat-card-subtitle>
+                <span>{{ this.loginService.currentUser.password }}</span>
+            </div>
+
+            <mat-form-field hintLabel="Minimum 6 characters" *ngIf="this.isEditing">
+                <input matInput type="password" placeholder="Enter your password." ngModel name="password" minlength="6" [(ngModel)]="this.loginService.currentUser.password" password required #passwordInput="ngModel">
+                <mat-hint align="end">{{passwordInput.value?.length}}/6</mat-hint>
+                <mat-error *ngIf="passwordInput.hasError('required')"> Password is required! </mat-error>
+            </mat-form-field>
+        </div>
+    </mat-card>
+
+    <!-- Address -->
+    <mat-card>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
+            <mat-icon>location_on</mat-icon>
+            <div fxLayout="column" *ngIf="!this.isEditing">
+                <mat-card-subtitle>Address</mat-card-subtitle>
+                <span>{{ this.loginService.currentUser.address }}</span>
+            </div>
+
+            <mat-form-field *ngIf="this.isEditing">
+                <input matInput type="text" placeholder="Address" ngModel name="address" [(ngModel)]="this.loginService.currentUser.address" required #adressInput="ngModel">
+                <mat-error *ngIf="adressInput.hasError('required')">Adress is required!</mat-error>
+            </mat-form-field>
+        </div>
+    </mat-card>
+
+    <button *ngIf="this.isEditing" mat-raised-button type="submit" color="primary" [disabled]="!editForm.valid"> Save user </button>
+    </form>
+    <br>
+</mat-dialog-content>
