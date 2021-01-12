@@ -87,3 +87,8 @@ footer mat-card {
 #img7 {
     background-image: url('../../../../Res/footercandy.jpg');
 }
+
+.candyimg :hover {
+    border-radius: 30px;
+    box-shadow: 15px;
+}

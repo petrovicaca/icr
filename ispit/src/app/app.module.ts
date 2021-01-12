@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CandyComponent } from './candy/candy.component';
+
+import { CandyService } from './shared/candy.service';
+import { LoginService } from './shared/login.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 //------------------MATERIAL MODULES----------------------
 import { MatInputModule } from  '@angular/material/input';
@@ -18,12 +24,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from  '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';
-import { LoginService } from './shared/login.service';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -32,7 +38,8 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     SignupComponent,
     WelcomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    CandyComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +56,12 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     FlexLayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, CandyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

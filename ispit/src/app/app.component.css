@@ -5,19 +5,6 @@ section {
     height: 100%;
     width: 100%;
     margin: auto;
-    background-image: url('../../../Res/welcomebg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-mat-sidenav-container {
-    background-image: url('../../../Res/welcomebg.jpg');
-
-    background-repeat: no-repeat;
-    background-size: cover;
-
-
 }
 
 #logo {

@@ -1,0 +1,45 @@
+<div fxLayoutAlign="center center">
+    <mat-icon color="primary"> search </mat-icon>
+    <mat-form-field fxFlex="20%">
+        <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Search">
+    </mat-form-field>
+</div>
+
+<mat-table [dataSource]="candySource" matSort>
+    <!-- NAME COLUMN -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+    </ng-container>
+
+    <!-- WEIGHT COLUMN -->
+    <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
+    </ng-container>
+
+    <!-- CALORIES COLUMN -->
+    <ng-container matColumnDef="calories">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Calories </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.calories }} </mat-cell>
+    </ng-container>
+
+    <!-- PICTURE COLUMN -->
+    <ng-container matColumnDef="picture">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Picture </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.picture }} </mat-cell>
+    </ng-container>
+
+    <!-- TYPE COLUMN -->
+    <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.type }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
+    <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<div>
+    <mat-paginator [pageSize]="3" [pageSizeOptions]="[2, 4, 6, 8, 10]"></mat-paginator>
+</div>
