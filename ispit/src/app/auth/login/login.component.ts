@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
       this.resetForm(form);
 
       // Lokalno sacuvati objekat koji je funkcija vratila
-      this.loginService.selectedProfile = res as Profile;
+      if(res !== null){
+        this.loginService.selectedProfile = res as Profile;
+      }
 
       document.getElementById("ertx").textContent = "This combination of username & password doesn't exist.";
 
