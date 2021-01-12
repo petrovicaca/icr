@@ -31,6 +31,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     SignupComponent,
     WelcomeComponent,
     ProfileComponent,
-    CandyComponent
+    CandyComponent,
+    CartComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

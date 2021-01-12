@@ -30,27 +30,31 @@
         <mat-cell *matCellDef="let element"> {{ element.picture }} </mat-cell>
     </ng-container>
 
-    <!-- TYPE COLUMN -->
+    <!-- CATEGORY COLUMN -->
     <ng-container matColumnDef="category">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{ element.category }} </mat-cell>
     </ng-container>
 
+    <!-- DESCRIPTION COLUMN -->
     <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{ element.description }} </mat-cell>
     </ng-container>
 
+    <!-- SHIPPING COLUMN -->
     <ng-container matColumnDef="shipping">
       <mat-header-cell *matHeaderCellDef> Shipping </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.shipping }} hours </mat-cell>
     </ng-container>
 
+    <!-- RATING COLUMN -->
     <ng-container matColumnDef="rating">
       <mat-header-cell *matHeaderCellDef> Rating </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{ element.rating }} <mat-icon>star</mat-icon> </mat-cell>
     </ng-container>
 
+    <!-- ORDER COLUMN -->
     <ng-container matColumnDef="order">
       <mat-header-cell *matHeaderCellDef> Order </mat-header-cell>
       <mat-cell *matCellDef="let element"> <button mat-raised-button color="accent"> Add to cart <mat-icon> shopping_cart </mat-icon> </button> </mat-cell>
