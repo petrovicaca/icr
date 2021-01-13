@@ -16,19 +16,19 @@ export class LoginService {
       id: "1",
       username: "test1@test.com ",
       password: "test12345",
-      firstname: "Test1",
-      lastname: "Test1",
-      address: "Test adress 1",
-      phone: "Test phone number 1" 
+      firstname: "First name 1",
+      lastname: "Last name 1",
+      address: "Adress 1",
+      phone: "Phone number 1" 
     },
     {
       id: "2",
       username: "test2@test.com ",
       password: "test6789",
-      firstname: "Test 2",
-      lastname: "Test 2",
-      address: "Test adress 2",
-      phone: "Test phone number 2"
+      firstname: "First name 1",
+      lastname: "Last name 1",
+      address: "Adress 2",
+      phone: "Phone number 2"
     }
   ]
 
