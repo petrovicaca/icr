@@ -8,6 +8,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CandyComponent } from './candy/candy.component';
+import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 import { CandyService } from './shared/candy.service';
 import { LoginService } from './shared/login.service';
@@ -31,8 +33,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CartComponent } from './cart/cart.component';
-import { OrdersComponent } from './orders/orders.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -65,10 +66,11 @@ import { OrdersComponent } from './orders/orders.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   providers: [LoginService, CandyService],
   bootstrap: [AppComponent],
-  entryComponents: [ProfileComponent]
+  entryComponents: [ProfileComponent, CartComponent]
 })
 export class AppModule { }
