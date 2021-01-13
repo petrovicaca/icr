@@ -3,7 +3,7 @@
         <mat-icon matListIcon> close </mat-icon>
     </button>
 
-    <button mat-raised-button color="accent" (click)="this.isEditing = !this.isEditing" *ngIf="this.isEditing">
+    <button mat-raised-button color="accent" (click)="goBack()" *ngIf="this.isEditing" [disabled]="!editForm.valid">
         <mat-icon matListIcon> reply </mat-icon>
     </button>
 
