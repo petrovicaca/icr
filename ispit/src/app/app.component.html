@@ -50,11 +50,37 @@
                 </button>
             </div>
 
+            <div id="links" fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
+                <div class="dropdown"> 
+                    <a href="#"> About us </a>
+                    <div class="dropdown-content">
+                        <mat-card>
+                            <h1> Something about us</h1>
+                        </mat-card>
+                      </div>
+                </div>
+
+                <div class="dropdown"> 
+                    <a href="#"> Candies </a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                      </div>
+                </div>
+
+                <div class="dropdown"> 
+                    <a href="#"> Contact </a>
+                    <div class="dropdown-content">
+                        <h1> Please contact us on this email</h1>
+                      </div>
+                </div>
+            </div>
+
             <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
                 <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
-                <a routerLink="/candy"> Candy </a>
                 <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> </button>
                 <button mat-raised-button color="accent" (click)="openProfile()" > {{ this.loginService.currentUser.firstname }} </button>
             </div>
@@ -67,19 +93,47 @@
 </mat-sidenav-container>
 
     <!-- FOOTER -->
-    <footer fxFlex fxLayoutAlign="center" fxLayoutGap="50px">
-        <div>
-            <a href="https://www.instagram.com/al_petrovic/" target="_blank">
-                <mat-icon> account_box </mat-icon>
-                Aleksandra Petrović
-            </a> 
-        </div> 
+    <footer>
+        <div fxFlex fxLayoutAlign="start" fxLayoutGap="30px">
+            <a routerLink="/">
+                Home
+            </a>
 
-        <div>
-            <a href="https://www.instagram.com/_cupic_m/" target="_blank">
-                <mat-icon> account_box </mat-icon>  
-                Marko Čupić 
+            <a routerLink="/">
+                About us
+            </a>
+
+            <a routerLink="/candy">
+                Candies
             </a>
         </div>
+
+        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
+            <a routerLink="/">
+                Home
+            </a>
+
+            <a routerLink="/">
+                About us
+            </a>
+
+            <a routerLink="/candy">
+                Candies
+            </a>
+        </div> 
+
+        <div fxFlex fxLayoutAlign="end" fxLayoutGap="30px">
+            <a routerLink="/">
+                Home
+            </a>
+
+            <a routerLink="/">
+                About us
+            </a>
+
+            <a routerLink="/candy">
+                Candies
+            </a>
+        </div> 
     </footer>
 </section>

@@ -26,7 +26,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 mat-sidenav {
     width: 250px;
     margin: 20px;
-    margin-top: 70px;
+    margin-top: 77px;
     border-radius: 20px;
     height: 90%;
 }
@@ -77,4 +77,61 @@ input {
 
 footer {
     background-color: #78909c;
+}
+
+footer div {
+    margin: 10px;
+}
+
+#links a {
+    text-decoration: underline;
+}
+
+#links a:hover{
+    text-decoration: none;
+}
+  
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #78909c;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 15px;
+}
+  
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #b0bec5;
+    border-radius: 15px;
+}
+  
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown-content h1 {
+    margin: 10px;
+}
+
+.dropdown-content mat-card {
+    background-color: #b0bec5;
+    border-radius: 15px;
+    width: 800px;
+    height: 500px;
 }
