@@ -26,7 +26,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 mat-sidenav {
     width: 250px;
     margin: 20px;
-    margin-top: 77px;
+    margin-top: 80px;
     border-radius: 20px;
     height: 90%;
 }
@@ -38,6 +38,10 @@ mat-sidenav a {
 mat-sidenav mat-icon {
     color:#78909c;
     margin-right: 15px;
+}
+
+#logo {
+    font-family: 'Cursive'
 }
 
 h2 {

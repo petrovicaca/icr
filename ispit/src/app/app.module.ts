@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 //------------------MATERIAL MODULES----------------------
 import { MatInputModule } from  '@angular/material/input';
@@ -67,7 +68,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [LoginService, CandyService],
   bootstrap: [AppComponent],
