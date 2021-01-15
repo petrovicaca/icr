@@ -11,13 +11,16 @@ import { Profile }            from '../app/shared/login.model';
 })
 export class AppComponent {
   title = 'ispit';
-
   profileOpened : boolean = false;
+  loggedIn: boolean = false;
 
-  constructor(private loginService: LoginService, private dialog : MatDialog) {}
+  constructor(public loginService: LoginService, private dialog : MatDialog) {}
 
   //profileX: String = this.loginService.getUserName();
 
+  ngOnInit(): void{
+
+  }
 
   openProfile() {
     this.profileOpened = true;
@@ -32,4 +35,22 @@ export class AppComponent {
       this.profileOpened = false;
     })
   }
+
+  logout(){
+    this.loggedIn = false;
+
+    let emptyProfile: Profile = {
+      _id: "",
+      username: "",
+      password: "",
+      firstname: "",
+      lastname: "",
+      address: "",
+      phone: "",
+      loggedIn: 0
+    }
+
+    LoginService.selectedProfile = emptyProfile;
+  }
+
 }

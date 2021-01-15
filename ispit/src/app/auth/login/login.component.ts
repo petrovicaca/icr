@@ -4,6 +4,7 @@ import { Profile } from '../../shared/login.model';
 
 import { LoginService } from '../../shared/login.service';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 declare var M: any;
 
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   loggedInUser: Profile = LoginService.selectedProfile;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private app: AppComponent) { }
 
   ngOnInit() {
     this.resetForm();
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
         // sačuvati ga ako je uspešno ulogovan i staviti mu flag loggedIn na true
         LoginService.selectedProfile = res as Profile;
         LoginService.selectedProfile.loggedIn = 1;
+        this.app.loggedIn = true;
       } else {
         LoginService.selectedProfile = {
           _id        : "",
