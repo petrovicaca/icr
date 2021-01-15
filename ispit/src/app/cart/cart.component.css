@@ -1,0 +1,12 @@
+section {
+    width: 300px;
+    height: 370px;
+}
+
+mat-dialog-content {
+    margin-top: 30%;
+}
+
+mat-dialog-actions {
+    margin-top: 35%;
+}

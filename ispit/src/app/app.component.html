@@ -1,9 +1,4 @@
 <section>
-<!--<div id="logo">
-    <h1> <a routerLink="/"> <mat-icon> cake </mat-icon> LOGO <mat-icon> cake </mat-icon> </a> </h1>
-</div>
--->
-
 <mat-sidenav-container>
     <mat-sidenav #sidenav opened="false">
         <mat-nav-list>
@@ -34,6 +29,11 @@
                 Candy
             </a>
 
+            <a mat-list-item routerLink="/orders" (click)="sidenav.close()">
+                <mat-icon> shopping_cart </mat-icon>
+                Shopping cart
+            </a>
+
             <!-- KADA BUDEMO DODALI LOGGED IN/OUT
                 <a mat-list-item routerLink="/">
                     <mat-icon> exit_to_app </mat-icon>
@@ -50,17 +50,47 @@
                 </button>
             </div>
 
-            <!-- PLACEHOLDER ZA SEARCHBAR -->
-            <div fxFlex fxLayoutAlign="end">
-                <mat-icon> cake </mat-icon> <a routerLink="/"> <h1> LOGO </h1>  </a> <mat-icon> cake </mat-icon>
+            <!-- LINKOVI ZA DUPLI MENI -->
+            <div id="links" fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
+                <div class="dropdown">
+                    <a href="#"> About us </a>
+                    <div class="dropdown-content">
+                        <mat-card>
+                            <h1> Something about us</h1>
+                        </mat-card>
+                      </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"> Candies </a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                      </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"> Contact </a>
+                    <div class="dropdown-content">
+                        <h1> Please contact us on this email</h1>
+                      </div>
+                </div>
             </div>
 
+            <!-- LOGO -->
+            <div id="logo">
+                <img width="200px" height="80px" src="https://i.pinimg.com/originals/98/13/7d/98137d1c17f45e5d79e08f76fdeece03.png">
+                <!-- https://www.pngkit.com/png/full/437-4378558_candy-logo-lollipop-tag-cartoon-png-and-psd.png druga slika mozda bolja -->
+            </div>
+
+            <!-- DUGMICI ZA NAVIGACIJU -->
             <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
                 <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
-                <a routerLink="/candy"> Candy </a>
-                <button mat-raised-button color="accent" (click)="openProfile()" > {{ this.loginService.selectedProfile.username }} </button>
+                <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> </button>
+                <button mat-raised-button color="accent" (click)="openProfile()" > {{ this.loginService.selectedProfile.firstname }} </button>
             </div>
         </mat-toolbar>
 
@@ -69,5 +99,49 @@
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
-</section>
 
+    <!-- FOOTER -->
+    <footer>
+        <div fxFlex fxLayoutAlign="start" fxLayoutGap="30px">
+            <a routerLink="/">
+                Home
+            </a>
+
+            <a routerLink="/">
+                About us
+            </a>
+
+            <a routerLink="/candy">
+                Candies
+            </a>
+        </div>
+
+        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
+            <a routerLink="/">
+                Home
+            </a>
+
+            <a routerLink="/">
+                About us
+            </a>
+
+            <a routerLink="/candy">
+                Candies
+            </a>
+        </div>
+
+        <div fxFlex fxLayoutAlign="end" fxLayoutGap="30px">
+            <a routerLink="/">
+                Home
+            </a>
+
+            <a routerLink="/">
+                About us
+            </a>
+
+            <a routerLink="/candy">
+                Candies
+            </a>
+        </div>
+    </footer>
+</section>
