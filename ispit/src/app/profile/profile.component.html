@@ -27,11 +27,11 @@
             <mat-icon>how_to_reg</mat-icon>
             <div fxLayout="column" *ngIf="!this.isEditing">
                 <mat-card-subtitle>Username</mat-card-subtitle>
-                <span>{{ this.loginService.currentUser.username }}</span>
+                <span>{{ this.loginService.selectedProfile.username }}</span>
             </div>
 
             <mat-form-field *ngIf="this.isEditing">
-                <input matInput type="text" placeholder="Your username" ngModel name="username" [(ngModel)]="this.loginService.currentUser.username" username required #usernameInput="ngModel">
+                <input matInput type="text" placeholder="Your username" ngModel name="username" [(ngModel)]="this.loginService.selectedProfile.username" username required #usernameInput="ngModel">
                 <mat-error *ngIf="usernameInput.hasError('required')">Username is required!</mat-error>
             </mat-form-field>
         </div>
@@ -41,9 +41,9 @@
     <mat-card *ngIf="this.isEditing">
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
             <mat-icon>lock</mat-icon>
-            
+
             <mat-form-field hintLabel="Minimum 6 characters">
-                <input matInput type="password" placeholder="Enter your password." ngModel name="password" minlength="6" [(ngModel)]="this.loginService.currentUser.password" password required #passwordInput="ngModel">
+                <input matInput type="password" placeholder="Enter your password." ngModel name="password" minlength="6" [(ngModel)]="this.loginService.selectedProfile.password" password required #passwordInput="ngModel">
                 <mat-hint align="end">{{passwordInput.value?.length}}/6</mat-hint>
                 <mat-error *ngIf="passwordInput.hasError('required')"> Password is required! </mat-error>
             </mat-form-field>
@@ -56,11 +56,11 @@
             <mat-icon>account_box</mat-icon>
             <div fxLayout="column" *ngIf="!this.isEditing">
                 <mat-card-subtitle>First name</mat-card-subtitle>
-                <span>{{ this.loginService.currentUser.firstname }}</span>
+                <span>{{ this.loginService.selectedProfile.firstname }}</span>
             </div>
 
             <mat-form-field *ngIf="this.isEditing">
-                <input matInput type="text" placeholder="First name" ngModel name="firstname" [(ngModel)]="this.loginService.currentUser.firstname" required #firstnameInput="ngModel">
+                <input matInput type="text" placeholder="First name" ngModel name="firstname" [(ngModel)]="this.loginService.selectedProfile.firstname" required #firstnameInput="ngModel">
                 <mat-error *ngIf="firstnameInput.hasError('required')">First name is required!</mat-error>
             </mat-form-field>
         </div>
@@ -72,28 +72,28 @@
             <mat-icon>account_box</mat-icon>
             <div fxLayout="column" *ngIf="!this.isEditing">
                 <mat-card-subtitle>Last name</mat-card-subtitle>
-                <span>{{ this.loginService.currentUser.lastname }}</span>
+                <span>{{ this.loginService.selectedProfile.lastname }}</span>
             </div>
 
             <mat-form-field *ngIf="this.isEditing">
-                <input matInput type="text" placeholder="Last name" ngModel name="lastname" [(ngModel)]="this.loginService.currentUser.lastname" required #lastnameInput="ngModel">
+                <input matInput type="text" placeholder="Last name" ngModel name="lastname" [(ngModel)]="this.loginService.selectedProfile.lastname" required #lastnameInput="ngModel">
                 <mat-error *ngIf="lastnameInput.hasError('required')">Last name is required!</mat-error>
             </mat-form-field>
         </div>
     </mat-card>
 
-    <!-- ADRESS -->
+    <!-- ADDRESS -->
     <mat-card>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1vw">
             <mat-icon>location_on</mat-icon>
             <div fxLayout="column" *ngIf="!this.isEditing">
                 <mat-card-subtitle>Address</mat-card-subtitle>
-                <span>{{ this.loginService.currentUser.address }}</span>
+                <span>{{ this.loginService.selectedProfile.address }}</span>
             </div>
 
             <mat-form-field *ngIf="this.isEditing">
-                <input matInput type="text" placeholder="Address" ngModel name="address" [(ngModel)]="this.loginService.currentUser.address" required #adressInput="ngModel">
-                <mat-error *ngIf="adressInput.hasError('required')">Adress is required!</mat-error>
+                <input matInput type="text" placeholder="Address" ngModel name="address" [(ngModel)]="this.loginService.selectedProfile.address" required #adressInput="ngModel">
+                <mat-error *ngIf="adressInput.hasError('required')">Address is required!</mat-error>
             </mat-form-field>
         </div>
     </mat-card>
@@ -104,11 +104,11 @@
             <mat-icon>call</mat-icon>
             <div fxLayout="column" *ngIf="!this.isEditing">
                 <mat-card-subtitle>Phone number</mat-card-subtitle>
-                <span>{{ this.loginService.currentUser.phone }}</span>
+                <span>{{ this.loginService.selectedProfile.phone }}</span>
             </div>
 
             <mat-form-field *ngIf="this.isEditing">
-                <input matInput type="text" placeholder="Your phone" ngModel name="phone" [(ngModel)]="this.loginService.currentUser.phone" required #phoneInput="ngModel">
+                <input matInput type="text" placeholder="Your phone" ngModel name="phone" [(ngModel)]="this.loginService.selectedProfile.phone" required #phoneInput="ngModel">
                 <mat-error *ngIf="phoneInput.hasError('required')">Adress is required!</mat-error>
             </mat-form-field>
         </div>

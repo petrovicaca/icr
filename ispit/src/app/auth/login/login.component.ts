@@ -15,7 +15,7 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
-  // loggedInUser: Profile;
+  loggedInUser: Profile;
 
   constructor(public loginService: LoginService, private router: Router) { }
 
@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
 
       if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
         this.router.navigate(['']);
+        this.loggedInUser = res as Profile;
       }
 
     });
@@ -64,11 +65,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-/*
-  onEdit(profile: Profile) {
-    this.loginService.selectedProfile = profile;
-  }
 
+/*
   onDelete(_id: string, form: NgForm) {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.loginService.deleteProfile(_id).subscribe((res) => {

@@ -87,7 +87,7 @@ router.put('/:id', (req, res) => {
         rating: req.body.rating
     };
     
-    Profile.findByIdAndUpdate(req.params.id, { $set: candy }, { new: true }, (err, doc) => {
+    Candy.findByIdAndUpdate(req.params.id, { $set: candy }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Candy Update :' + JSON.stringify(err, undefined, 2)); }
     });

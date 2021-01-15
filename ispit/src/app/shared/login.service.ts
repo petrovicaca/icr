@@ -9,8 +9,52 @@ import { Profile } from './login.model';
 @Injectable()
 export class LoginService {
 
-  //STATIC PROFILE DUMMY DATA
+  selectedProfile: Profile ={
+      id: "",
+      username: "",
+      password: "",
+      firstname: "",
+      lastname: "",
+      address: "",
+      phone: ""
+  };
 
+  profiles: Profile[];
+  readonly baseURL = 'http://localhost:3000/profiles';
+
+  constructor(private http: HttpClient) { }
+
+  postProfile(profile: Profile) {
+    return this.http.post(this.baseURL, profile);
+  }
+
+  getProfileList() {
+    return this.http.get(this.baseURL);
+  }
+
+  getSpecificProfile(username: String, password: String){
+    return this.http.get(this.baseURL + `/${username}` + `/${password}`);
+  }
+
+  getByUsername(username: String){
+    return this.http.get(this.baseURL + `/${username}`);
+  }
+
+  putProfile(profile: Profile) {
+    return this.http.put(this.baseURL + `/${profile.id}`, profile);
+  }
+
+  deleteProfile(id: string) {
+    return this.http.delete(this.baseURL + `/${id}`);
+  }
+
+
+
+
+
+
+  //STATIC PROFILE DUMMY DATA
+/*
   static dummyUserList: Array<Profile> = [
     {
       id: "1",
@@ -19,7 +63,7 @@ export class LoginService {
       firstname: "First name 1",
       lastname: "Last name 1",
       address: "Adress 1",
-      phone: "Phone number 1" 
+      phone: "Phone number 1"
     },
     {
       id: "2",
@@ -64,46 +108,7 @@ export class LoginService {
     console.log(user);
     return user;
   }
-
+*/
   //END OF STATIC DUMMY DATA
-
-  selectedProfile: Profile ={
-      id: "",
-      username: "",
-      password: "",
-      firstname: "",
-      lastname: "",
-      address: "",
-      phone: ""
-  };
-
-  profiles: Profile[];
-  readonly baseURL = 'http://localhost:3000/profiles';
-
-  constructor(private http: HttpClient) { }
-
-  postProfile(profile: Profile) {
-    return this.http.post(this.baseURL, profile);
-  }
-
-  getProfileList() {
-    return this.http.get(this.baseURL);
-  }
-
-  getSpecificProfile(username: String, password: String){
-    return this.http.get(this.baseURL + `/${username}` + `/${password}`);
-  }
-
-  getByUsername(username: String){
-    return this.http.get(this.baseURL + `/${username}`);
-  }
-
-  putProfile(profile: Profile) {
-    return this.http.put(this.baseURL + `/${profile.id}`, profile);
-  }
-
-  deleteProfile(id: string) {
-    return this.http.delete(this.baseURL + `/${id}`);
-  }
 
 }
