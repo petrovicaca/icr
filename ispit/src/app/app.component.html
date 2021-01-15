@@ -26,7 +26,7 @@
 
             <a mat-list-item routerLink="/candy" (click)="sidenav.close()">
                 <mat-icon> cake </mat-icon>
-                Candy
+                Candies
             </a>
 
             <a mat-list-item routerLink="/orders" (click)="sidenav.close()">
@@ -51,37 +51,46 @@
             </div>
 
             <!-- LINKOVI ZA DUPLI MENI -->
+<<<<<<< HEAD
             <div id="links" fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
                 <div class="dropdown">
+=======
+            <div id="links" fxFlex fxLayoutAlign="center" fxLayoutGap="30px" fxHide.xs>
+                <div class="dropdown">
+>>>>>>> 550f58f96136429d853aa7b6b10869aa384f68ac
                     <a href="#"> About us </a>
                     <div class="dropdown-content">
-                        <mat-card>
-                            <h1> Something about us</h1>
-                        </mat-card>
+                        <h1>
+                            A text about us
+                        </h1>
                       </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#"> Candies </a>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                      </div>
+                        <div class="row">
+                            <a class="chocolate">Chocolates</a>
+                            <a class="macarons">Macarons</a>
+                            <a class="hcandy">Hard candy</a>
+                        </div>
+
+                        <div class="row">
+                            <a class="sour">Sour candy</a>
+                            <a class="canes">Candy canes</a>
+                            <a class="gummies">Gummies</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="dropdown">
-                    <a href="#"> Contact </a>
-                    <div class="dropdown-content">
-                        <h1> Please contact us on this email</h1>
-                      </div>
+                <div>
+                    <a routerLink="/contact"> Contact </a>
                 </div>
             </div>
 
             <!-- LOGO -->
             <div id="logo">
-                <img width="200px" height="80px" src="https://i.pinimg.com/originals/98/13/7d/98137d1c17f45e5d79e08f76fdeece03.png">
-                <!-- https://www.pngkit.com/png/full/437-4378558_candy-logo-lollipop-tag-cartoon-png-and-psd.png druga slika mozda bolja -->
+                <a routerLink="/"> Candy Playground </a>
             </div>
 
             <!-- DUGMICI ZA NAVIGACIJU -->
@@ -103,16 +112,8 @@
     <!-- FOOTER -->
     <footer>
         <div fxFlex fxLayoutAlign="start" fxLayoutGap="30px">
-            <a routerLink="/">
-                Home
-            </a>
-
-            <a routerLink="/">
-                About us
-            </a>
-
-            <a routerLink="/candy">
-                Candies
+            <a routerLink="/contact">
+                Contact us
             </a>
         </div>
 
@@ -121,26 +122,24 @@
                 Home
             </a>
 
-            <a routerLink="/">
-                About us
+            <a routerLink="/login">
+                Login
             </a>
 
-            <a routerLink="/candy">
-                Candies
+            <a routerLink="/signup">
+                Signup
             </a>
         </div>
 
         <div fxFlex fxLayoutAlign="end" fxLayoutGap="30px">
-            <a routerLink="/">
-                Home
+            <a href="#">
+                Aleksandar Petrović
+                &#169;
             </a>
 
-            <a routerLink="/">
-                About us
-            </a>
-
-            <a routerLink="/candy">
-                Candies
+            <a href="#">
+                Marko Čupić
+                &#169;
             </a>
         </div>
     </footer>
