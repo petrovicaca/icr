@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ProfileComponent } from './profile/profile.component';
-import { LoginService } from './shared/login.service';
+import { Component }          from '@angular/core';
+import { MatDialog }          from '@angular/material/dialog';
+import { ProfileComponent }   from './profile/profile.component';
+import { LoginService }       from './shared/login.service';
+import { Profile }            from '../app/shared/login.model';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ export class AppComponent {
 
   profileOpened : boolean = false;
 
-  constructor(public loginService: LoginService, private dialog : MatDialog) {}
+  constructor(private loginService: LoginService, private dialog : MatDialog) {}
+
+  //profileX: String = this.loginService.getUserName();
+
 
   openProfile() {
     this.profileOpened = true;

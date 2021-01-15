@@ -15,9 +15,9 @@ declare var M: any;
 })
 export class LoginComponent implements OnInit {
 
-  loggedInUser: Profile;
+  loggedInUser: Profile = LoginService.selectedProfile;
 
-  constructor(public loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -26,14 +26,17 @@ export class LoginComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form)
       form.reset();
-    this.loginService.selectedProfile = {
-      id: "",
+
+
+      LoginService.selectedProfile = {
+      _id: "",
       username: "",
       password: "",
       firstname: "",
       lastname: "",
       address: "",
-      phone: ""
+      phone: "",
+      loggedIn: 0
     }
   }
 
@@ -45,16 +48,30 @@ export class LoginComponent implements OnInit {
     this.loginService.getSpecificProfile(username, password).subscribe((res) => {
       this.resetForm(form);
 
-      // Lokalno sacuvati objekat koji je funkcija vratila
+      // Lokalno sacuvati objekat koji je funkcija vratila pre provere
       if(res !== null){
-        this.loginService.selectedProfile = res as Profile;
+        LoginService.selectedProfile = res as Profile;
       }
 
       document.getElementById("ertx").textContent = "This combination of username & password doesn't exist.";
 
-      if(username == this.loginService.selectedProfile.username && password == this.loginService.selectedProfile.password){
+      if(username == LoginService.selectedProfile.username && password == LoginService.selectedProfile.password){
         this.router.navigate(['']);
-        this.loggedInUser = res as Profile;
+
+        // sačuvati ga ako je uspešno ulogovan i staviti mu flag loggedIn na true
+        LoginService.selectedProfile = res as Profile;
+        LoginService.selectedProfile.loggedIn = 1;
+      } else {
+        LoginService.selectedProfile = {
+          _id        : "",
+          username  : "",
+          password  : "",
+          firstname : "",
+          lastname  : "",
+          address   : "",
+          phone     : "",
+          loggedIn  : 0
+        }
       }
 
     });

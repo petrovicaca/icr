@@ -4,25 +4,32 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+
 import { Profile } from './login.model';
+import { Profile2 } from './login.model';
 
 @Injectable()
 export class LoginService {
 
-  selectedProfile: Profile ={
-      id: "",
+  static selectedProfile: Profile ={
+      _id: "",
       username: "",
       password: "",
       firstname: "",
       lastname: "",
       address: "",
-      phone: ""
+      phone: "",
+      loggedIn: 0
   };
 
   profiles: Profile[];
   readonly baseURL = 'http://localhost:3000/profiles';
 
   constructor(private http: HttpClient) { }
+
+  public getUserName(){
+    return LoginService.selectedProfile.firstname;
+  }
 
   postProfile(profile: Profile) {
     return this.http.post(this.baseURL, profile);
@@ -40,18 +47,15 @@ export class LoginService {
     return this.http.get(this.baseURL + `/${username}`);
   }
 
-  putProfile(profile: Profile) {
-    return this.http.put(this.baseURL + `/${profile.id}`, profile);
+  putProfile(profile: Profile2, _id: String) {
+    console.log(profile);
+    console.log(this.baseURL + `/${_id}`);
+    return this.http.put(this.baseURL + `/${_id}`, profile);
   }
 
   deleteProfile(id: string) {
     return this.http.delete(this.baseURL + `/${id}`);
   }
-
-
-
-
-
 
   //STATIC PROFILE DUMMY DATA
 /*

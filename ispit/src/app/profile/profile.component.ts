@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../shared/login.model';
+import { Profile, Profile2 } from '../shared/login.model';
 import { LoginService } from '../shared/login.service';
 import { Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import {Location} from '@angular/common';
 import { LoginComponent } from '../auth/login/login.component';
+
+declare var M: any;
 
 @Component({
   selector: 'app-profile',
@@ -15,20 +17,25 @@ import { LoginComponent } from '../auth/login/login.component';
 export class ProfileComponent implements OnInit{
 
   isEditing: boolean = false;
-  //profileForInput: Profile;
+  profileForInput: Profile = LoginService.selectedProfile;
+  localId: String = LoginService.selectedProfile._id;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public loginService: LoginService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private loginService: LoginService) { }
 
   ngOnInit(): void {
-    /*this.profileForInput = {
-      id: this.data.user.id,
-      username: this.data.user.username,
-      password: this.data.user.password,
-      firstname: this.data.user.firstname,
-      lastname: this.data.user.lastname,
-      address: this.data.user.adress,
-      phone: this.data.user.phone
-    };*/
+    /*let profileX: Profile = {
+      _id: "6001b9191169703b54644dda",
+      username: "Aca",
+      password: "test123",
+      firstname: "Aca",
+      lastname: "Aca",
+      address: "Aca",
+      phone: "Aca",
+      loggedIn: 1
+    };
+
+  this.loginService.putProfile(profileX);*/
+
 
   }
 
@@ -38,49 +45,67 @@ export class ProfileComponent implements OnInit{
     console.log(LoginService.dummyUserList);
     */
 
-    this.loginService.selectedProfile.username = form.value.username;
-    this.loginService.selectedProfile.password = form.value.password;
-    this.loginService.selectedProfile.address = form.value.address;
-    this.loginService.selectedProfile.firstname = form.value.firstname;
-    this.loginService.selectedProfile.lastname = form.value.lastname;
-    this.loginService.selectedProfile.lastname = form.value.phone;
+    LoginService.selectedProfile._id       = form.value._id;
+    LoginService.selectedProfile.username  = form.value.username;
+    LoginService.selectedProfile.password  = form.value.password;
+    LoginService.selectedProfile.address   = form.value.address;
+    LoginService.selectedProfile.firstname = form.value.firstname;
+    LoginService.selectedProfile.lastname  = form.value.lastname;
+    LoginService.selectedProfile.phone     = form.value.phone;
+    console.log(LoginService.selectedProfile);
 
-    this.data.user.username = this.loginService.selectedProfile.username;
-    this.data.user.password = this.loginService.selectedProfile.username;
-    this.data.user.address = this.loginService.selectedProfile.username;
-    this.data.user.firstname = this.loginService.selectedProfile.firstname;
-    this.data.user.lastname = this.loginService.selectedProfile.lastname;
-    this.data.user.phone = this.loginService.selectedProfile.phone;
 
-    this.onEdit(this.loginService.selectedProfile);
+    let profileForPutting: Profile2 = {
+      username: LoginService.selectedProfile.username,
+      password: LoginService.selectedProfile.password,
+      firstname: LoginService.selectedProfile.firstname,
+      lastname: LoginService.selectedProfile.lastname,
+      address: LoginService.selectedProfile.address,
+      phone: LoginService.selectedProfile.phone,
+      loggedIn: 1
+    }
+
+    console.log(profileForPutting);
+
+    let idForPut: String = LoginService.selectedProfile._id;
+    console.log(idForPut);
+    //this.profileForInput = LoginService.selectedProfile;
+
+    this.loginService.putProfile(profileForPutting, idForPut).subscribe((res) => {
+      M.toast({ html: 'Saved successfully', classes: 'rounded' });
+    });
+
 
     this.isEditing = false;
   }
 
+
+/*
   onEdit(profile: Profile) {
-    this.loginService.selectedProfile = profile;
-    this.loginService.putProfile(profile);
-  }
+    this.loginService.putProfile(profile, this.localId);
+  }*/
 
   goBack() {
     this.isEditing = false;
 
-    this.data.user.username = this.loginService.selectedProfile.username;
-    this.data.user.password = this.loginService.selectedProfile.username;
-    this.data.user.address = this.loginService.selectedProfile.username;
-    this.data.user.firstname = this.loginService.selectedProfile.firstname;
-    this.data.user.lastname = this.loginService.selectedProfile.lastname;
-    this.data.user.phone = this.loginService.selectedProfile.phone;
+    this.data.user.username   = LoginService.selectedProfile.username;
+    this.data.user.password   = LoginService.selectedProfile.password;
+    this.data.user.address    = LoginService.selectedProfile.address;
+    this.data.user.firstname  = LoginService.selectedProfile.firstname;
+    this.data.user.lastname   = LoginService.selectedProfile.lastname;
+    this.data.user.phone      = LoginService.selectedProfile.phone;
+    this.data.user.loggedIn   = LoginService.selectedProfile.loggedIn;
 
     /*
     this.profileForInput = {
-      id: this.data.user.id,
-      username: this.data.user.username,
-      password: this.data.user.password,
-      firstname: this.data.user.firstname,
-      lastname: this.data.user.lastname,
-      address: this.data.user.adress,
-      phone: this.data.user.phone
+      id:         LoginService.selectedProfile.id,
+      username:   LoginService.selectedProfile.username,
+      password:   LoginService.selectedProfile.password,
+      firstname:  LoginService.selectedProfile.firstname,
+      lastname:   LoginService.selectedProfile.lastname,
+      address:    LoginService.selectedProfile.address,
+      phone:      LoginService.selectedProfile.phone,
+      loggedIn:   LoginService.selectedProfile.loggedIn
     };
     */
   }

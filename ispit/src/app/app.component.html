@@ -90,7 +90,7 @@
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
                 <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> </button>
-                <button mat-raised-button color="accent" (click)="openProfile()" > {{ this.loginService.selectedProfile.firstname }} </button>
+                <button mat-raised-button color="accent" (click)="openProfile()" >   {{ loginService.getUserName() }} </button>
             </div>
         </mat-toolbar>
 

@@ -33,16 +33,29 @@ router.get('/:username/', (req, res) => {
 });
 
 
+// Vratiti ulogvanog korisnika koji može samo postojati jedan
+router.get('/:loggedIn/', (req, res) => {
+    Profile.findOne({ loggedIn: 1}, (err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving Profiles:' + JSON.stringify(err, undefined, 2)); }    
+    });
+});
+
+
+
+        
+    
 // -------------------------------------------------------GET BY ID
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
+    return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-        Profile.findById(req.params.id, (err, doc) => {
+    Profile.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving Profile:' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
 
 // -------------------------------------------------------POST NEW
 router.post('/', (req, res) => {
@@ -55,7 +68,8 @@ router.post('/', (req, res) => {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         address: req.body.address,
-        phone: req.body.phone
+        phone: req.body.phone,
+        loggedIn: 0
     });
    
     Profile.findOne({username: profile.username}, (err, docs) => {
@@ -76,7 +90,7 @@ router.post('/', (req, res) => {
 // -------------------------------------------------------EDIT OLD
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
-        return res.status(400).send(`No record with given id : ${req.params.id}`);
+    return res.status(400).send(`No record with given id : ${req.params.id}`);
 
     var profile = {
         username: req.body.username,
@@ -84,13 +98,22 @@ router.put('/:id', (req, res) => {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         address: req.body.address,
-        phone: req.body.phone
+        phone: req.body.phone,
+        loggedIn: req.body.loggedIn
     };
-    
+
+    Profile.findByIdAndUpdate(req.params.id, { $set: profile }, { new: true }, (err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error in Retriving Profiles:' + JSON.stringify(err, undefined, 2)); }    
+    });
+
+/*
     Profile.findByIdAndUpdate(req.params.id, { $set: profile }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Profile Update :' + JSON.stringify(err, undefined, 2)); }
-    });
+    });*/
+   
+
 });
 
 // ---------------------------------------------------------DELETE
