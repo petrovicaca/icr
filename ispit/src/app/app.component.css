@@ -40,8 +40,10 @@ mat-sidenav mat-icon {
     margin-right: 15px;
 }
 
-#logo {
-    font-family: 'Cursive'
+#logo a{
+    font-family: 'Brush Script MT';
+    color: white;
+    font-size: 35px;
 }
 
 h2 {
@@ -105,19 +107,19 @@ footer div {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #78909c;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #90a4ae;
     z-index: 1;
     border-radius: 15px;
+    width: max-content;
+    height: max-content;
 }
   
 /* Links inside the dropdown */
 .dropdown-content a {
     color: white;
-    padding: 12px 16px;
     text-decoration: none;
     display: block;
+    margin: 25px;
 }
   
 /* Dropdown links on hover */
@@ -127,15 +129,45 @@ footer div {
 }
   
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown-content h1 {
-    margin: 10px;
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-.dropdown-content mat-card {
-    background-color: #b0bec5;
+.row {
+    height: 200px;
+}
+
+.row a {
+    height: 150px;
+    width: 120px;
+}
+
+.chocolate {
+    background-image: url("https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/confectionerynews.com/article/2019/08/19/new-study-finds-steep-rise-in-sugar-levels-in-uk-chocolate-bars/10055756-1-eng-GB/New-study-finds-steep-rise-in-sugar-levels-in-UK-chocolate-bars_wrbm_large.jpg");
     border-radius: 15px;
-    width: 800px;
-    height: 500px;
+}
+
+.macarons {
+    background-image: url("https://www.gannett-cdn.com/presto/2019/02/11/PMJS/ba983c60-150e-4ebf-bb70-c61143f7a39b-sidedish08-macarons.jpg");
+    border-radius: 15px;
+}
+
+.hcandy {
+    background-image: url("https://cdn.shopify.com/s/files/1/0553/5925/collections/Hard_Candy_Collection_1200x795.jpg?v=1471635591");
+    border-radius: 15px;
+}
+
+.sour {
+    background-image: url("https://m.media-amazon.com/images/I/61LPwnDF01L.jpg");
+    border-radius: 15px;
+}
+
+.canes {
+    background-image: url("https://cdn11.bigcommerce.com/s-do0ookap9x/images/stencil/1280x1280/products/7092/8392/apijrglcj__34201.1506885673.jpg?c=2");
+    border-radius: 15px;
+}
+
+.gummies {
+    background-image: url("https://cdn10.bigcommerce.com/s-1sodvrykg2/products/299/images/670/mini-gummy-bears__18810.1491342040.500.750.jpg?c=2");
+    border-radius: 15px;
 }
