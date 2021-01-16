@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import {Observable} from 'rxjs/Observable';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from '../cart/cart.component';
+import { LoginService } from '../shared/login.service';
 
 @Component({
   selector: 'app-candy',
@@ -17,6 +18,8 @@ import { CartComponent } from '../cart/cart.component';
   providers: [CandyService]
 })
 export class CandyComponent implements OnInit, AfterViewInit {
+
+  loggedIn: boolean = false;
 
   displayedColumns = ["name", "weight", "price", "picture", "category", "description", "shipping", "rating", "order"];
 
@@ -31,6 +34,10 @@ export class CandyComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     //this.candySource.data = this.candyService.getCandyList();
+
+    if(LoginService.selectedProfile.loggedIn == 1){
+      this.loggedIn = true;
+    }
 
     this.candyService.getCandyList().subscribe(
       resp => {
