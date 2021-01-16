@@ -9,29 +9,34 @@
                 Home
             </a>
 
-            <a mat-list-item routerLink="/login" (click)="sidenav.close()">
+            <a mat-list-item routerLink="/login" (click)="sidenav.close()" *ngIf="!this.loggedIn">
                 <mat-icon> input </mat-icon>
                 Login
             </a>
 
-            <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
+            <a mat-list-item routerLink="/signup" (click)="sidenav.close()" *ngIf="!this.loggedIn">
                 <mat-icon> face </mat-icon>
                 Signup
             </a>
 
-            <a mat-list-item (click)="openProfile()" (click)="sidenav.close()">
+            <a mat-list-item (click)="openProfile()" (click)="sidenav.close()" *ngIf="this.loggedIn">
                 <mat-icon> person </mat-icon>
                 Profile
             </a>
 
             <a mat-list-item routerLink="/candy" (click)="sidenav.close()">
                 <mat-icon> cake </mat-icon>
-                Candies
+                Products
             </a>
 
-            <a mat-list-item routerLink="/orders" (click)="sidenav.close()">
+            <a mat-list-item routerLink="/orders" (click)="sidenav.close()" *ngIf="this.loggedIn">
                 <mat-icon> shopping_cart </mat-icon>
                 Shopping cart
+            </a>
+
+            <a mat-list-item (click)="logout()" (click)="sidenav.close()" *ngIf="this.loggedIn">
+                <mat-icon> login </mat-icon>
+                Log out
             </a>
 
         </mat-nav-list>
@@ -57,7 +62,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a href="#"> Products </a>
+                    <a routerLink="/candy"> Products </a>
                     <div class="dropdown-content">
                         <div class="row">
                             <a class="chocolate">Chocolates</a>
@@ -91,7 +96,6 @@
                 <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
-                <a routerLink="/candy"> Candies </a>
             </div>
         </mat-toolbar>
 
@@ -119,7 +123,7 @@
               </div>
 
               <div class="dropdown">
-                  <a href="#"> Candies </a>
+                  <a routerLink="/candy"> Products </a>
                   <div class="dropdown-content">
                       <div class="row">
                           <a class="chocolate">Chocolates</a>
@@ -151,7 +155,6 @@
           <!-- DUGMICI ZA NAVIGACIJU -->
           <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
               <a routerLink="/"> Home </a>
-              <a routerLink="/candy"> Candies </a>
               <a routerLink="/" (click)="logout()"> Logout</a>
               <button mat-raised-button color="accent" (click)="openProfile()" >   {{ loginService.getUserName() }} </button>
               <!-- SIGN UP JE BIO OVDE-->
