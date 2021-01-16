@@ -40,9 +40,6 @@ router.get('/:loggedIn/', (req, res) => {
         else { console.log('Error in Retriving Profiles:' + JSON.stringify(err, undefined, 2)); }    
     });
 });
-
-
-
         
     
 // -------------------------------------------------------GET BY ID

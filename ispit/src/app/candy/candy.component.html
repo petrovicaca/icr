@@ -55,10 +55,25 @@
     </ng-container>
 
     <!-- ORDER COLUMN -->
-    <ng-container matColumnDef="order">
+    <ng-container matColumnDef="order" >
       <mat-header-cell *matHeaderCellDef> Order </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="openCart()"> Add to cart <mat-icon> shopping_cart </mat-icon> </button> </mat-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          [disabled]="!this.loggedIn"
+          mat-raised-button color="accent"
+          (click)="openCart()">
+
+            <span *ngIf="!this.loggedIn">Please login to order</span>
+            <span *ngIf="this.loggedIn">Add to cart</span>
+            <mat-icon> shopping_cart </mat-icon>
+        </button>
+      </mat-cell>
     </ng-container>
+
+    <div >
+
+    </div>
+
 
     <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
     <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
