@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a href="#"> Candies </a>
+                    <a href="#"> Products </a>
                     <div class="dropdown-content">
                         <div class="row">
                             <a class="chocolate">Chocolates</a>
@@ -91,8 +91,7 @@
                 <a routerLink="/"> Home </a>
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
-                <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> </button>
-
+                <a routerLink="/candy"> Candies </a>
             </div>
         </mat-toolbar>
 
@@ -177,7 +176,7 @@
             </a>
         </div>
 
-        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
+        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px" *ngIf="!this.loggedIn">
             <a routerLink="/">
                 Home
             </a>
@@ -188,6 +187,20 @@
 
             <a routerLink="/signup">
                 Signup
+            </a>
+        </div>
+
+        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px" *ngIf="this.loggedIn">
+            <a routerLink="/">
+                Home
+            </a>
+
+            <a routerLink="/candy">
+                Candies
+            </a>
+
+            <a routerLink="/orders">
+                Orders
             </a>
         </div>
 
