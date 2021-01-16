@@ -1,9 +1,138 @@
 <mat-tab-group>
-    <mat-tab label="Current items">
-        <h1> OVDE SE NALAZE TRENUTNE PORUDZBINE SA RECIMO STATUSOM IN PROGRESS, ZBOG BACKENDA I PODATAKA ZA TABELU MORACEMO ZAJEDNO DA PRAVIMO OVO </h1>
+
+    <!-- TAB SHOPPING CART -->
+    <!-- UZIMA CANDY PODATKE, OPONASA SHOPPING CART I DAJE OPCIJE ZA BUY, EDIT, CANCEL, PROSLEDJUJE PORUDZBINE U IN PROGRESS TAB-->
+    <mat-tab label="Shopping cart">
+        <!-- SEARCH BAR-->
+        <div fxLayoutAlign="center center">
+            <mat-icon color="primary"> search </mat-icon>
+            <mat-form-field fxFlex="20%">
+                <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Search">
+            </mat-form-field>
+        </div>
+
+        <!-- TABELA -->
+        <mat-table [dataSource]="ordersSource" matSort>
+            <!-- IMA SAMO ACTIONS A UZIMA NAME, PRICE I CATEGORY IZ CANDY-JA -->
+            <!-- POTREBAN JE [dataSource]="candySource" VEROVATNO -->
+            <!-- U TYPESCRIPTY DA SE VEZU PODACI OD CANDY-JA, JA TO NISAM USPEO -->
+
+            <!--
+                NAME COLUMN
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+                </ng-container>
+                
+                PRICE COLUMN
+                <ng-container matColumnDef="price">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.price }}$ </mat-cell>
+                </ng-container>
+
+                CATEGORY COLUMN
+                <ng-container matColumnDef="category">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.category }} </mat-cell>
+                </ng-container>
+            -->
+
+            <!-- ACTIONS COLUMN -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                <mat-cell *matCellDef="let element" fxLayoutGap="15px">
+                    <button mat-raised-button color="accent"> Buy </button>
+                    <button mat-raised-button color="accent"> Edit </button>  
+                    <button mat-raised-button color="accent"> Cancel </button> 
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumnsCart"> </mat-header-row>
+            <mat-row *matRowDef="let rows; columns: displayedColumnsCart;"></mat-row>
+        </mat-table>
+
+        <div>
+            <mat-paginator [pageSize]="3" [pageSizeOptions]="[2, 4, 6, 8, 10]"></mat-paginator>
+        </div>
+        
+        <div>
+            <!-- FUNKCIJA KOJA RACUNA UKUPNU CENU I ISPISUJE JE OVDE-->
+            <h1> Total price: 200$</h1>
+        </div>
     </mat-tab>
 
-    <mat-tab label="Order history">
-        <h1> OVDE SE NALAZI ISTORIJA PORUDZBINA SA RECIMO STATUSOM DELIVERED, ZBOG BACKENDA I PODATAKA ZA TABELU MORACEMO ZAJEDNO DA PRAVIMO OVO</h1>
+
+    <!-- IN PROGRESS TAB -->
+    <!-- ZA OVAJ TAB CE TREBATI KOLONA TIME KOJA SE UZIMA IZ CANDY, DA KAO ZNAMO ZA KOLIKO DOLAZI -->
+    <mat-tab label="In progress">
+        <!-- SEARCH BAR-->
+        <div fxLayoutAlign="center center">
+            <mat-icon color="primary"> search </mat-icon>
+            <mat-form-field fxFlex="20%">
+                <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Search">
+            </mat-form-field>
+        </div>
+
+        <!-- TABELA -->
+        <mat-table [dataSource]="ordersSource" matSort>
+            <!-- STATUS COLUMN, UVEK IN PROGRES ZA OVAJ TAB, SVE DOK SE ILI NE COMFIRM-UJE ILI NE CANCEL-UJE -->
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+            </ng-container>
+
+            <!-- ACTIONS COLUMN -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                <mat-cell *matCellDef="let element" fxLayoutGap="15px">
+                    <button mat-raised-button color="accent"> Confirm recived goods </button>
+                    <button mat-raised-button color="accent"> Cancel </button> 
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumnsOrders"> </mat-header-row>
+            <mat-row *matRowDef="let rows; columns: displayedColumnsOrders;"></mat-row>
+        </mat-table>
+
+        <div>
+            <mat-paginator [pageSize]="3" [pageSizeOptions]="[2, 4, 6, 8, 10]"></mat-paginator>
+        </div>
+    </mat-tab>
+
+    <!-- TAB ISTORIJA PORUDZBINA -->
+    <!-- OVDE SU PORUDZBINE ILI FINISHED ILI CANCELED -->
+    <mat-tab label="Orders">
+        <!-- SEARCH BAR-->
+        <div fxLayoutAlign="center center">
+            <mat-icon color="primary"> search </mat-icon>
+            <mat-form-field fxFlex="20%">
+                <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Search">
+            </mat-form-field>
+        </div>
+
+        <!-- TABELA -->
+        <mat-table [dataSource]="ordersSource" matSort>
+            <!--ORDER STATUS COLUMN -->
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+            </ng-container>
+
+            <!-- ACTIONS COLUMN -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                <mat-cell *matCellDef="let element" fxLayoutGap="15px">
+                    <button mat-raised-button color="accent"> Rate </button>
+                    <button mat-raised-button color="accent"> Delete </button> 
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumnsOrders"> </mat-header-row>
+            <mat-row *matRowDef="let rows; columns: displayedColumnsOrders;"></mat-row>
+        </mat-table>
+
+        <div>
+            <mat-paginator [pageSize]="3" [pageSizeOptions]="[2, 4, 6, 8, 10]"></mat-paginator>
+        </div>
     </mat-tab>
 </mat-tab-group>

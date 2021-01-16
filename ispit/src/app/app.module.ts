@@ -13,6 +13,7 @@ import { OrdersComponent } from './orders/orders.component';
 
 import { CandyService } from './shared/candy.service';
 import { LoginService } from './shared/login.service';
+import { OrdersService } from './shared/orders.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -71,7 +72,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule,
     MDBBootstrapModule.forRoot()
   ],
-  providers: [LoginService, CandyService],
+  providers: [LoginService, CandyService, OrdersService],
   bootstrap: [AppComponent],
   entryComponents: [ProfileComponent, CartComponent]
 })

@@ -1,20 +1,14 @@
 <section>
-    <h1 mat-dialog-title fxLayoutAlign="center"> Your order </h1>
+    <h1 mat-dialog-title fxLayoutAlign="center"> Added to shopping cart </h1>
     <mat-dialog-content fxLayoutAlign="center"> 
         <div>
             ime bombone
             <br>
-            opis bombone
-            <br>
             cena bombone
-            <br>
-            shiping time bombone
-            <br>
-            tezina bombones
         </div>
     </mat-dialog-content>
     <mat-dialog-actions fxLayoutAlign="space-between">
-        <button mat-raised-button color="accent" routerLink="/orders" [mat-dialog-close]="true">  Confirm </button>
-        <button mat-raised-button color="accent" [mat-dialog-close]="true"> Cancel </button>
+        <button mat-raised-button color="accent" [mat-dialog-close]="true"> Ok </button>
+        <button mat-raised-button color="accent" routerLink="/orders" [mat-dialog-close]="true"> View cart </button>
     </mat-dialog-actions>
 </section>
