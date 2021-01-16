@@ -151,6 +151,7 @@
           <!-- DUGMICI ZA NAVIGACIJU -->
           <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
               <a routerLink="/"> Home </a>
+              <a routerLink="/candy"> Candies </a>
               <a routerLink="/" (click)="logout()"> Logout</a>
               <button mat-raised-button color="accent" (click)="openProfile()" >   {{ loginService.getUserName() }} </button>
               <!-- SIGN UP JE BIO OVDE-->
