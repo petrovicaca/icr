@@ -4,18 +4,18 @@
 
     <!--ID POLJE-->
     <mat-form-field [style.display]="'none'">
-      <input matInput name="id" [(ngModel)]="loginService.selectedProfile.id" required #id="ngModel">
+      <input matInput name="id" [(ngModel)]="this.loggedInUser._id" required #id="ngModel">
     </mat-form-field>
 
     <!--USERNAME POLJE-->
     <mat-form-field>
-      <input matInput type="text" name="username" [(ngModel)]="loginService.selectedProfile.username" required #username="ngModel" placeholder="Please enter your username">
+      <input matInput type="text" name="username" [(ngModel)]="this.loggedInUser.username" required #username="ngModel" placeholder="Please enter your username">
       <mat-error *ngIf="username.invalid">Please enter your username</mat-error>
     </mat-form-field>
 
     <!--PASSWORD POLJE-->
     <mat-form-field>
-      <input matInput type="password" name="password" [(ngModel)]="loginService.selectedProfile.password" required #password="ngModel" placeholder="Please enter your password">
+      <input matInput type="password" name="password" [(ngModel)]="this.loggedInUser.password" required #password="ngModel" placeholder="Please enter your password">
       <mat-error *ngIf="password.invalid">Please enter your password</mat-error>
     </mat-form-field>
 

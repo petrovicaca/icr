@@ -34,16 +34,11 @@
                 Shopping cart
             </a>
 
-            <!-- KADA BUDEMO DODALI LOGGED IN/OUT
-                <a mat-list-item routerLink="/">
-                    <mat-icon> exit_to_app </mat-icon>
-                    Logout
-                </a> -->
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
+        <mat-toolbar color="primary" *ngIf="!this.loggedIn">
             <div>
                 <button  mat-raised-button color="accent" (click)="sidenav.toggle()">
                     <mat-icon> menu </mat-icon>
@@ -52,7 +47,7 @@
 
             <!-- LINKOVI ZA DUPLI MENI -->
             <div id="links" fxFlex fxLayoutAlign="center" fxLayoutGap="30px" fxHide.xs>
-                <div class="dropdown"> 
+                <div class="dropdown">
                     <a href="#"> About us </a>
                     <div class="dropdown-content">
                         <h1>
@@ -61,7 +56,7 @@
                       </div>
                 </div>
 
-                <div class="dropdown"> 
+                <div class="dropdown">
                     <a href="#"> Candies </a>
                     <div class="dropdown-content">
                         <div class="row">
@@ -69,7 +64,7 @@
                             <a class="macarons">Macarons</a>
                             <a class="hcandy">Hard candy</a>
                         </div>
-    
+
                         <div class="row">
                             <a class="sour">Sour candy</a>
                             <a class="canes">Candy canes</a>
@@ -78,8 +73,11 @@
                     </div>
                 </div>
 
-                <div> 
-                    <a routerLink="/contact"> Contact </a>
+                <div class="dropdown">
+                    <a href="#"> Contact </a>
+                    <div class="dropdown-content">
+                        <h1> Please contact us on this email</h1>
+                      </div>
                 </div>
             </div>
 
@@ -94,9 +92,76 @@
                 <a routerLink="/login"> Login </a>
                 <a routerLink="/signup"> Signup </a>
                 <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> </button>
-                <button mat-raised-button color="accent" (click)="openProfile()" > {{ this.loginService.currentUser.firstname }} </button>
+
             </div>
         </mat-toolbar>
+
+
+        <!-- DRUGI TOOLBAR NGIF -->
+        <!-- DRUGI TOOLBAR NGIF -->
+        <!-- DRUGI TOOLBAR NGIF -->
+
+        <mat-toolbar color="primary" *ngIf="this.loggedIn">
+          <div>
+              <button  mat-raised-button color="accent" (click)="sidenav.toggle()">
+                  <mat-icon> menu </mat-icon>
+              </button>
+          </div>
+
+          <!-- LINKOVI ZA DUPLI MENI -->
+          <div id="links" fxFlex fxLayoutAlign="center" fxLayoutGap="30px" fxHide.xs>
+              <div class="dropdown">
+                  <a href="#"> About us </a>
+                  <div class="dropdown-content">
+                      <h1>
+                          A text about us
+                      </h1>
+                    </div>
+              </div>
+
+              <div class="dropdown">
+                  <a href="#"> Candies </a>
+                  <div class="dropdown-content">
+                      <div class="row">
+                          <a class="chocolate">Chocolates</a>
+                          <a class="macarons">Macarons</a>
+                          <a class="hcandy">Hard candy</a>
+                      </div>
+
+                      <div class="row">
+                          <a class="sour">Sour candy</a>
+                          <a class="canes">Candy canes</a>
+                          <a class="gummies">Gummies</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="dropdown">
+                  <a href="#"> Contact </a>
+                  <div class="dropdown-content">
+                      <h1> Please contact us on this email</h1>
+                    </div>
+              </div>
+          </div>
+
+          <!-- LOGO -->
+          <div id="logo">
+              <a routerLink="/"> Candy Playground </a>
+          </div>
+
+          <!-- DUGMICI ZA NAVIGACIJU -->
+          <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
+              <a routerLink="/"> Home </a>
+              <a routerLink="/" (click)="logout()"> Logout</a>
+              <button mat-raised-button color="accent" (click)="openProfile()" >   {{ loginService.getUserName() }} </button>
+              <!-- SIGN UP JE BIO OVDE-->
+              <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> </button>
+
+          </div>
+      </mat-toolbar>
+
+
+
 
         <button mat-raised-button id="chatbot"> <mat-icon> forum </mat-icon> </button>
 
@@ -124,7 +189,7 @@
             <a routerLink="/signup">
                 Signup
             </a>
-        </div> 
+        </div>
 
         <div fxFlex fxLayoutAlign="end" fxLayoutGap="30px">
             <a href="#">
@@ -136,6 +201,6 @@
                 Marko Čupić
                 &#169;
             </a>
-        </div> 
+        </div>
     </footer>
 </section>

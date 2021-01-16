@@ -23,7 +23,7 @@ router.get('/:username/:password', (req, res) => {
 */
 
 router.get('/:name/', (req, res) => {
-    Profile.findOne({ name: req.params.name}, (err, docs) => {
+    Candy.findOne({ name: req.params.name}, (err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error in Retriving Candy:' + JSON.stringify(err, undefined, 2)); }    
     });
@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-        Profile.findById(req.params.id, (err, doc) => {
+        Candy.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Retriving Candy:' + JSON.stringify(err, undefined, 2)); }
     });
@@ -87,7 +87,7 @@ router.put('/:id', (req, res) => {
         rating: req.body.rating
     };
     
-    Profile.findByIdAndUpdate(req.params.id, { $set: candy }, { new: true }, (err, doc) => {
+    Candy.findByIdAndUpdate(req.params.id, { $set: candy }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Candy Update :' + JSON.stringify(err, undefined, 2)); }
     });
