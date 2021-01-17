@@ -16,7 +16,7 @@ import { LoginService } from './shared/login.service';
 import { OrdersService } from './shared/orders.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -36,7 +36,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-
 
 @NgModule({
   declarations: [
@@ -70,7 +69,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatPaginatorModule,
     MatDialogModule,
     MatTabsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [LoginService, CandyService, OrdersService],
   bootstrap: [AppComponent],

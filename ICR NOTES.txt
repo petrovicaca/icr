@@ -132,3 +132,17 @@ PUT
     
 
     */
+
+
+API KEY
+    AIzaSyB5106l8y3i5t7MDHchRWGsNEbxoF5cUpI
+
+
+FIREBASE SERVICE ACCOUNT
+  var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});

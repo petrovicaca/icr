@@ -29,7 +29,7 @@ export class AppComponent {
       disableClose: true,
       width: "30vw",
       data: { user: this.loginService.getByUsername }
-    });
+    });``
 
     profileDialog.afterClosed().subscribe(result => {
       this.profileOpened = false;
