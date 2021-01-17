@@ -13,6 +13,7 @@ import { OrdersComponent } from './orders/orders.component';
 
 import { CandyService } from './shared/candy.service';
 import { LoginService } from './shared/login.service';
+import { OrdersService } from './shared/orders.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -76,7 +77,7 @@ import { ChatComponent } from './chat/chat.component';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [LoginService, CandyService, ChatService, PusherService],
+  providers: [LoginService, CandyService, ChatService, OrdersService],
   bootstrap: [AppComponent],
   entryComponents: [ProfileComponent, CartComponent]
 })

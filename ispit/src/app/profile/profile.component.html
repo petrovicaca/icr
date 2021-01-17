@@ -21,8 +21,6 @@
 
 <mat-dialog-content>
     <form fxLayout="column" fxLayoutGap="3vh" #editForm="ngForm" (ngSubmit)="finishEditing(editForm)">
-
-    <!-- -->
     <!-- ID -->
     <mat-form-field [style.display]="'none'">
       <input matInput type="text" name="_id" [ngModel]="this.profileForInput._id" required _id #_id="ngModel">

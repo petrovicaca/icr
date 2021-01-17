@@ -1,3 +1,4 @@
+<!-- SEARCH BAR-->
 <div fxLayoutAlign="center center">
     <mat-icon color="primary"> search </mat-icon>
     <mat-form-field fxFlex="20%">
@@ -18,7 +19,7 @@
         <mat-cell *matCellDef="let element"> {{ element.weight }}g </mat-cell>
     </ng-container>
 
-    <!-- CALORIES COLUMN -->
+    <!-- PRICE COLUMN -->
     <ng-container matColumnDef="price">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{ element.price }}$ </mat-cell>

@@ -1,12 +1,16 @@
 section {
     width: 300px;
-    height: 370px;
+    height: 340px;
 }
 
 mat-dialog-content {
-    margin-top: 30%;
+    margin-top: 20%;
 }
 
 mat-dialog-actions {
-    margin-top: 35%;
+    margin-top: 30%;
+}
+
+h1, h2 {
+    text-emphasis: bold;
 }
