@@ -64,33 +64,3 @@ bot.post('/', express.json(),(req, res) => {
 });
 
 bot.listen(333, () => console.log('server radi na portu 333'));
-
-
-
-
-
-
-/*
-
-const functions         = require('../ispit/node_modules/firebase-functions');
-const admin             = require('../ispit/node_modules/firebase-admin');
-const serviceAccount    = require('./service-account.json');
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://ispit-mrud-default-rtdb.europe-west1.firebasedatabase.app/"
-});
-
-const { SessionClient } = require('../ispit/node_modules/dialogflow');
-const { request } = require('https');
-
-exports.dialogflowGateway = functions.https.onRequest((request, response) => {
-    cors(request, response, async () => {
-        const{queryInput, sessionId} = request.body;
-
-        const SessionClient = new SessionClient({ credentials: serviceAccount});
-        const session = SessionClient.sessionPath('')
-
-
-    });
-});*/
