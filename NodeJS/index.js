@@ -43,12 +43,12 @@ bot.post('/', express.json(),(req, res) => {
                   "type": "accordion",
                   "title": "Poruka sa slikom",
                   "subtitle": "podnaslov slike",
-                  },
-                  {
+                },
+                {
                   "type": "image",
                   "rawUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Beograd_night.png",
                   "accessibilityText": "alt text"
-                  }
+                }
               ]
             ]
           }
