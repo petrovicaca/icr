@@ -36,10 +36,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-import { ChatService } from './shared/chat.service';
-import { PusherService } from './shared/pusher.service';
-import { ChatComponent } from './chat/chat.component';
-
 
 @NgModule({
   declarations: [
@@ -50,8 +46,7 @@ import { ChatComponent } from './chat/chat.component';
     ProfileComponent,
     CandyComponent,
     CartComponent,
-    OrdersComponent,
-    ChatComponent
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +72,7 @@ import { ChatComponent } from './chat/chat.component';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [LoginService, CandyService, ChatService, OrdersService],
+  providers: [LoginService, CandyService, OrdersService],
   bootstrap: [AppComponent],
   entryComponents: [ProfileComponent, CartComponent]
 })

@@ -3,7 +3,6 @@ import { MatDialog }          from '@angular/material/dialog';
 import { ProfileComponent }   from './profile/profile.component';
 import { LoginService }       from './shared/login.service';
 import { Profile }            from '../app/shared/login.model';
-import { ChatService } from './shared/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,7 @@ export class AppComponent {
   profileOpened : boolean = false;
   loggedIn: boolean = false;
 
-  constructor(public loginService: LoginService, private dialog : MatDialog, public chatService: ChatService) {}
+  constructor(public loginService: LoginService, private dialog : MatDialog) {}
 
   //profileX: String = this.loginService.getUserName();
 
