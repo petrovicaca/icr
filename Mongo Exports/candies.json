@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "6002d3d1f2378910309bbf78"
+  },
+  "name": "prva",
+  "weight": 4,
+  "price": 15,
+  "picture": "nema",
+  "category": "candies",
+  "description": "bombon",
+  "shipping": 15,
+  "rating": 5,
+  "__v": 0
+}]

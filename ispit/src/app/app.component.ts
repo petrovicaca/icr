@@ -3,6 +3,7 @@ import { MatDialog }          from '@angular/material/dialog';
 import { ProfileComponent }   from './profile/profile.component';
 import { LoginService }       from './shared/login.service';
 import { Profile }            from '../app/shared/login.model';
+import { ChatService } from './shared/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
   profileOpened : boolean = false;
   loggedIn: boolean = false;
 
-  constructor(public loginService: LoginService, private dialog : MatDialog) {}
+  constructor(public loginService: LoginService, private dialog : MatDialog, public chatService: ChatService) {}
 
   //profileX: String = this.loginService.getUserName();
 
@@ -29,7 +30,7 @@ export class AppComponent {
       disableClose: true,
       width: "30vw",
       data: { user: this.loginService.getByUsername }
-    });
+    });``
 
     profileDialog.afterClosed().subscribe(result => {
       this.profileOpened = false;
