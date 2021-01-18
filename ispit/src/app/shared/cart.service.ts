@@ -2,37 +2,33 @@ import { Injectable } from '@angular/core';
 import { getLocaleCurrencyCode } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Candy } from "./candy.model";
+import { Cart  } from "./cart.model";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class CandyService {
+export class CartService {
 
-  static selectedCandy: Candy ={
-    id: "",
-    name: "",
-    weight: 0,
-    price: 0,
-    picture: "",
-    category: "candies",
-    description: "",
-    shipping: 0,
-    rating: 0
-}
+  static selectedCart: Cart = {
+    name: "userCart",
+    candy: []
+  }
 
-  candies: Candy[];
-  readonly baseURL = 'http://localhost:3000/candies';
+  static cartSource;
+
+  readonly baseURL = 'http://localhost:3000/cart';
 
   constructor(private http: HttpClient) { }
 
-  postCandy(candy: Candy) {
-    return this.http.post(this.baseURL, candy);
+  postCart(cart: Cart) {
+    return this.http.post(this.baseURL, cart);
   }
 
-  getCandyList():Observable<Candy[]> {
-    return this.http.get<Candy[]>(this.baseURL);
+
+  getCartList():Observable<Cart[]> {
+    return this.http.get<Cart[]>(this.baseURL);
   }
 
 /*
@@ -44,13 +40,13 @@ export class CandyService {
   getByName(name: String){
     return this.http.get(this.baseURL + `/${name}`);
   }
-
-  putCandy(candy: Candy) {
-    return this.http.put(this.baseURL + `/${candy.id}`, candy);
+/*
+  putCart(cart: Cart) {
+    return this.http.put(this.baseURL + `/${cart.id}`, cart);
   }
 
-  deleteCandy(id: string) {
+  deleteCart(id: string) {
     return this.http.delete(this.baseURL + `/${id}`);
-  }
+  }*/
 
 }

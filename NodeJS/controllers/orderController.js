@@ -43,11 +43,7 @@ router.post('/', (req, res) => {
 
     error = false;
 
-    var order = new Order({
-        serialNumber: req.body.serialNumber,
-        deliveryTime: req.body.deliveryTime,
-        price: req.body.price
-    });
+    var order = new Order(req.body);
    
     Order.findOne({serialNumber: order.serialNumber}, (err, docs) => {
         if (!err && docs != null) {

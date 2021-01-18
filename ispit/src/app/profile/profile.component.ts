@@ -23,27 +23,10 @@ export class ProfileComponent implements OnInit{
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private loginService: LoginService) { }
 
   ngOnInit(): void {
-    /*let profileX: Profile = {
-      _id: "6001b9191169703b54644dda",
-      username: "Aca",
-      password: "test123",
-      firstname: "Aca",
-      lastname: "Aca",
-      address: "Aca",
-      phone: "Aca",
-      loggedIn: 1
-    };
-
-  this.loginService.putProfile(profileX);*/
-
 
   }
 
   finishEditing(form: NgForm) {
-    /*
-    console.log(this.data.user);
-    console.log(LoginService.dummyUserList);
-    */
 
     LoginService.selectedProfile._id       = form.value._id;
     LoginService.selectedProfile.username  = form.value.username;
@@ -79,12 +62,6 @@ export class ProfileComponent implements OnInit{
     this.isEditing = false;
   }
 
-
-/*
-  onEdit(profile: Profile) {
-    this.loginService.putProfile(profile, this.localId);
-  }*/
-
   goBack() {
     this.isEditing = false;
 
@@ -96,18 +73,6 @@ export class ProfileComponent implements OnInit{
     this.data.user.phone      = LoginService.selectedProfile.phone;
     this.data.user.loggedIn   = LoginService.selectedProfile.loggedIn;
 
-    /*
-    this.profileForInput = {
-      id:         LoginService.selectedProfile.id,
-      username:   LoginService.selectedProfile.username,
-      password:   LoginService.selectedProfile.password,
-      firstname:  LoginService.selectedProfile.firstname,
-      lastname:   LoginService.selectedProfile.lastname,
-      address:    LoginService.selectedProfile.address,
-      phone:      LoginService.selectedProfile.phone,
-      loggedIn:   LoginService.selectedProfile.loggedIn
-    };
-    */
   }
 
 }

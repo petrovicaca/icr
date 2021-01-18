@@ -36,6 +36,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CartService } from './shared/cart.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [LoginService, CandyService, OrdersService],
+  providers: [LoginService, CandyService, OrdersService, CartService],
   bootstrap: [AppComponent],
   entryComponents: [ProfileComponent, CartComponent]
 })

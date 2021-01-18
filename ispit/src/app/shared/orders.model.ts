@@ -1,4 +1,5 @@
-export interface Orders {
-    id: string;
-    status: 'in progress' | 'finished' | 'canceled';
+export interface Order {
+  items: Array<String>;
+  price: number;
+  status: 'in progress' | 'finished' | 'canceled';
 }

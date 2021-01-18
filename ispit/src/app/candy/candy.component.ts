@@ -10,6 +10,7 @@ import {Observable} from 'rxjs/Observable';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from '../cart/cart.component';
 import { LoginService } from '../shared/login.service';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-candy',
@@ -17,7 +18,12 @@ import { LoginService } from '../shared/login.service';
   styleUrls: ['./candy.component.css'],
   providers: [CandyService]
 })
+
+
+
 export class CandyComponent implements OnInit, AfterViewInit {
+
+
 
   loggedIn: boolean = false;
 
@@ -32,8 +38,15 @@ export class CandyComponent implements OnInit, AfterViewInit {
 
   constructor(private candyService : CandyService, private dialog: MatDialog) { }
 
+  selection;
+
   ngOnInit(): void {
     //this.candySource.data = this.candyService.getCandyList();
+/*
+    const initialSelection = [];
+    const allowMultiSelect = true;
+    this.selection = new SelectionModel<Candy>(allowMultiSelect, initialSelection);
+*/
 
     if(LoginService.selectedProfile.loggedIn == 1){
       this.loggedIn = true;
@@ -58,8 +71,12 @@ export class CandyComponent implements OnInit, AfterViewInit {
     this.candySource.filter = filterValue.trim().toLowerCase();
   }
 
-  openCart() {
+  openCart(id) {
     this.cartOpened = true;
+
+    CandyService.selectedCandy = id;
+
+    console.log(CandyService.selectedCandy);
 
     const profileDialog = this.dialog.open(CartComponent, {
       disableClose: true,

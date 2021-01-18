@@ -12,53 +12,68 @@
         </div>
 
         <!-- TABELA -->
-        <mat-table [dataSource]="ordersSource" matSort>
+        <mat-table [dataSource]="cartSource" matSort>
             <!-- IMA SAMO ACTIONS A UZIMA NAME, PRICE I CATEGORY IZ CANDY-JA -->
             <!-- POTREBAN JE [dataSource]="candySource" VEROVATNO -->
             <!-- U TYPESCRIPTY DA SE VEZU PODACI OD CANDY-JA, JA TO NISAM USPEO -->
 
-            <!--
-                NAME COLUMN
+
+                <!-- NAME COLUMN -->
                 <ng-container matColumnDef="name">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
                 </ng-container>
-                
-                PRICE COLUMN
+
+                <!-- PRICE COLUMN -->
                 <ng-container matColumnDef="price">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{ element.price }}$ </mat-cell>
                 </ng-container>
 
-                CATEGORY COLUMN
+                <!-- CATEGORY COLUMN -->
                 <ng-container matColumnDef="category">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{ element.category }} </mat-cell>
                 </ng-container>
-            -->
+
 
             <!-- ACTIONS COLUMN -->
-            <ng-container matColumnDef="actions">
-                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <ng-container matColumnDef="actions" >
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Delete </mat-header-cell>
                 <mat-cell *matCellDef="let element" fxLayoutGap="15px">
-                    <button mat-raised-button color="accent"> Buy </button>
-                    <button mat-raised-button color="accent"> Edit </button>  
-                    <button mat-raised-button color="accent"> Cancel </button> 
+
+                    <button mat-raised-button color="accent" [disabled]="!this.editable" (click)="this.delete(element)"> <mat-icon>delete</mat-icon> </button>
                 </mat-cell>
             </ng-container>
+
+
 
             <mat-header-row *matHeaderRowDef="displayedColumnsCart"> </mat-header-row>
             <mat-row *matRowDef="let rows; columns: displayedColumnsCart;"></mat-row>
         </mat-table>
 
+
+
         <div>
-            <mat-paginator [pageSize]="3" [pageSizeOptions]="[2, 4, 6, 8, 10]"></mat-paginator>
+            <div>
+              <mat-paginator [pageSize]="3" [pageSizeOptions]="[2, 4, 6, 8, 10]"></mat-paginator>
+            </div>
+            <div fxLayoutAlign="end">
+              <!-- FUNKCIJA KOJA RACUNA UKUPNU CENU I ISPISUJE JE OVDE-->
+              <h1> Total price: 200$</h1>
+            </div>
+            <div fxLayoutAlign="end" fxLayoutGap="9px">
+              <button mat-raised-button color="accent" (click)="this.buy()"> Buy </button>
+              <button mat-raised-button color="accent" (click)="this.edit()" *ngIf="!this.editable"> Edit </button>
+              <button mat-raised-button color="accent" (click)="this.edit2()" *ngIf="this.editable"> Cancel </button>
+            </div>
         </div>
-        
+
         <div>
-            <!-- FUNKCIJA KOJA RACUNA UKUPNU CENU I ISPISUJE JE OVDE-->
-            <h1> Total price: 200$</h1>
+
         </div>
+
+
     </mat-tab>
 
 
@@ -76,17 +91,27 @@
         <!-- TABELA -->
         <mat-table [dataSource]="ordersSource" matSort>
             <!-- STATUS COLUMN, UVEK IN PROGRES ZA OVAJ TAB, SVE DOK SE ILI NE COMFIRM-UJE ILI NE CANCEL-UJE -->
+            <ng-container matColumnDef="items">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Items </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{ element.items }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
+            </ng-container>
+
             <ng-container matColumnDef="status">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
             </ng-container>
 
             <!-- ACTIONS COLUMN -->
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                 <mat-cell *matCellDef="let element" fxLayoutGap="15px">
-                    <button mat-raised-button color="accent"> Confirm recived goods </button>
-                    <button mat-raised-button color="accent"> Cancel </button> 
+                    <button mat-raised-button color="accent" (click)="this.finish(element)"> Confirm recived goods </button>
+                    <button mat-raised-button color="accent" (click)="this.deleteOrder(element)"> Cancel </button>
                 </mat-cell>
             </ng-container>
 
@@ -101,7 +126,7 @@
 
     <!-- TAB ISTORIJA PORUDZBINA -->
     <!-- OVDE SU PORUDZBINE ILI FINISHED ILI CANCELED -->
-    <mat-tab label="Orders">
+    <mat-tab label="History">
         <!-- SEARCH BAR-->
         <div fxLayoutAlign="center center">
             <mat-icon color="primary"> search </mat-icon>
@@ -111,24 +136,35 @@
         </div>
 
         <!-- TABELA -->
-        <mat-table [dataSource]="ordersSource" matSort>
+        <mat-table [dataSource]="ordersSource2" matSort>
             <!--ORDER STATUS COLUMN -->
             <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="items">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Items </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{ element.items }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
+          </ng-container>
+
+
             <!-- ACTIONS COLUMN -->
             <ng-container matColumnDef="actions">
-                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
                 <mat-cell *matCellDef="let element" fxLayoutGap="15px">
                     <button mat-raised-button color="accent"> Rate </button>
-                    <button mat-raised-button color="accent"> Delete </button> 
+                    <button mat-raised-button color="accent"> Delete </button>
                 </mat-cell>
             </ng-container>
 
-            <mat-header-row *matHeaderRowDef="displayedColumnsOrders"> </mat-header-row>
-            <mat-row *matRowDef="let rows; columns: displayedColumnsOrders;"></mat-row>
+            <mat-header-row *matHeaderRowDef="displayedColumnsOrders2"> </mat-header-row>
+            <mat-row *matRowDef="let rows; columns: displayedColumnsOrders2;"></mat-row>
         </mat-table>
 
         <div>

@@ -1,15 +1,15 @@
 <section>
     <h1 mat-dialog-title fxLayoutAlign="center"> Added to shopping cart </h1>
-    <mat-dialog-content fxLayoutAlign="center"> 
+    <mat-dialog-content fxLayoutAlign="center">
         <!-- OVO NIJE CART KAO CART, VEC SAMO CONFIRM DIJALOG KADA SE KLIKNE NA DUGME, KOJI SADRZI PODATKE I DUGME KOJE PROSLEDJUJE NA KORPU-->
         <!-- OVDE TREBA UVESTI PODATKE ZA IME I CENU IZ TABELE-->
         <div>
-            <h2> Ime bombone </h2>
-            <h2> Cena bombone </h2>
+            <h2> {{ this.candyForInput.name }} </h2>
+            <h2> {{ this.candyForInput.price }} </h2>
         </div>
     </mat-dialog-content>
     <mat-dialog-actions fxLayoutAlign="space-between">
-        <button mat-raised-button color="accent" [mat-dialog-close]="true"> Ok </button>
-        <button mat-raised-button color="accent" routerLink="/orders" [mat-dialog-close]="true"> View cart </button>
+        <button mat-raised-button color="accent" [mat-dialog-close]="true" (click)="this.addToCart()"> Ok </button>
+        <button mat-raised-button color="accent" routerLink="/orders" [mat-dialog-close]="true" (click)="this.addToCart()"> View cart </button>
     </mat-dialog-actions>
 </section>
