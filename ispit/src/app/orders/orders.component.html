@@ -80,14 +80,7 @@
 
     <!-- IN PROGRESS TAB -->
     <!-- ZA OVAJ TAB CE TREBATI KOLONA TIME KOJA SE UZIMA IZ CANDY, DA KAO ZNAMO ZA KOLIKO DOLAZI -->
-    <mat-tab label="In progress">
-        <!-- SEARCH BAR-->
-        <div fxLayoutAlign="center center">
-            <mat-icon color="primary"> search </mat-icon>
-            <mat-form-field fxFlex="20%">
-                <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Search">
-            </mat-form-field>
-        </div>
+    <mat-tab label="Orders in progress">
 
         <!-- TABELA -->
         <mat-table [dataSource]="ordersSource" matSort>
@@ -127,14 +120,7 @@
 
     <!-- TAB ISTORIJA PORUDZBINA -->
     <!-- OVDE SU PORUDZBINE ILI FINISHED ILI CANCELED -->
-    <mat-tab label="History">
-        <!-- SEARCH BAR-->
-        <div fxLayoutAlign="center center">
-            <mat-icon color="primary"> search </mat-icon>
-            <mat-form-field fxFlex="20%">
-                <input matInput type="text" (keyup)="doFilter($any($event.target).value)" placeholder="Search">
-            </mat-form-field>
-        </div>
+    <mat-tab label="Order History">
 
         <!-- TABELA -->
         <mat-table [dataSource]="ordersSource2" matSort>
@@ -165,7 +151,7 @@
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                 <mat-cell *matCellDef="let element" fxLayoutGap="15px">
-                    <button mat-raised-button color="accent"> Delete </button>
+                    <button mat-raised-button color="accent" (click)="this.deleteOrderHistory(element)"> Delete </button>
                 </mat-cell>
             </ng-container>
 

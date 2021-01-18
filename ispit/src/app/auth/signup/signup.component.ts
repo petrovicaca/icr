@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/login.service';
 import { Profile } from '../../shared/login.model';
+import { Profile2 } from '../../shared/login2.model';
 
 
 @Component({
@@ -25,8 +26,7 @@ export class SignupComponent implements OnInit {
 
   onRegister(form: NgForm){
 
-    let profile: Profile = {
-      _id: form.value._id,
+    let profile: Profile2 = {
       username: form.value.username,
       password: form.value.password,
       firstname: form.value.firstname,

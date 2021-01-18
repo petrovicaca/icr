@@ -7,6 +7,8 @@ var ObjectId = require('../../ispit/node_modules/mongoose').Types.ObjectId;
 
 var { Profile } = require('../models/profile');
 
+var { Profile2 } = require('../models/profile2');
+
 // => localhost:3000/profiles/
 
 // -------------------------------------------------------GET ALL 
@@ -59,7 +61,7 @@ router.post('/', (req, res) => {
 
     error = false;
 
-    var profile = new Profile({
+    var profile2 = new Profile2({
         username: req.body.username,
         password: req.body.password,
         firstname: req.body.firstname,
@@ -69,13 +71,13 @@ router.post('/', (req, res) => {
         loggedIn: 0
     });
    
-    Profile.findOne({username: profile.username}, (err, docs) => {
+    Profile2.findOne({username: profile2.username}, (err, docs) => {
         if (!err && docs != null) {
             res.send("User already exists!");
             error = true;
         }
         else {
-            profile.save((err, doc) => {
+            profile2.save((err, doc) => {
                 if (!err) { res.send(doc); }
                 else { console.log('Error in Profile Save :' + JSON.stringify(err, undefined, 2)); }
             });
