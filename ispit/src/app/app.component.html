@@ -55,9 +55,12 @@
                 <div class="dropdown">
                     <a> About us </a>
                     <div class="dropdown-content">
-                        <h1>
-                            A text about us
-                        </h1>
+                        <ul>
+                            <li> <a href="https://www.linkedin.com/in/alpetrovi%C4%87/" target="_blank"> Aleksandar Petrović </a> </li>
+                            <li> <a href="https://www.linkedin.com/in/marko-%C4%8Dupi%C4%87-18a744204/" target="_blank"> Marko Cupic </a> </li>
+                            <li> <a href="https://singidunum.ac.rs" target="_blank"> Students at Singidunum University </a> </li>
+                            <li> <a href="http://fir.singidunum.ac.rs" target="_blank"> Profile ~ Computer Science </a> </li>
+                        </ul>
                       </div>
                 </div>
 
@@ -117,9 +120,12 @@
               <div class="dropdown">
                   <a> About us </a>
                   <div class="dropdown-content">
-                      <h1>
-                          A text about us
-                      </h1>
+                    <ul>
+                        <li> <a href="https://www.linkedin.com/in/alpetrovi%C4%87/" target="_blank"> Aleksandar Petrović </a> </li>
+                        <li> <a href="https://www.linkedin.com/in/marko-%C4%8Dupi%C4%87-18a744204/" target="_blank"> Marko Cupic </a> </li>
+                        <li> <a href="https://singidunum.ac.rs" target="_blank"> Students at Singidunum University </a> </li>
+                        <li> <a href="http://fir.singidunum.ac.rs" target="_blank"> Profile ~ Computer Science </a> </li>
+                    </ul>
                     </div>
               </div>
 
@@ -169,13 +175,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <div fxFlex fxLayoutAlign="start" fxLayoutGap="30px">
-            <a routerLink="/contact">
-                Contact us
-            </a>
-        </div>
-
-        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px" *ngIf="!this.loggedIn">
+        <div fxFlex fxLayoutAlign="start" fxLayoutGap="30px" *ngIf="!this.loggedIn">
             <a routerLink="/">
                 Home
             </a>
@@ -189,7 +189,7 @@
             </a>
         </div>
 
-        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px" *ngIf="this.loggedIn">
+        <div fxFlex fxLayoutAlign="start" fxLayoutGap="30px" *ngIf="this.loggedIn">
             <a routerLink="/">
                 Home
             </a>
@@ -203,16 +203,20 @@
             </a>
         </div>
 
-        <div fxFlex fxLayoutAlign="end" fxLayoutGap="30px">
-            <a href="#">
+        <div fxFlex fxLayoutAlign="center" fxLayoutGap="30px">
+            <a href="https://www.linkedin.com/in/alpetrovi%C4%87/" target="_blank">
                 Aleksandar Petrović
                 &#169;
             </a>
 
-            <a href="#">
+            <a href="https://www.linkedin.com/in/marko-%C4%8Dupi%C4%87-18a744204/" target="_blank">
                 Marko Čupić
                 &#169;
             </a>
+        </div>
+
+        <div fxFlex fxLayoutAlign="end">
+
         </div>
     </footer>
 </section>
