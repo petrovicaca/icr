@@ -1,0 +1,3 @@
+-Pokrenuti ng serve iz ispit foldera
+-Pokrenuti nodemon index.js iz NodeJS folder (Mongo + NgRok)
+-Pokrenuti ngrok http 333
