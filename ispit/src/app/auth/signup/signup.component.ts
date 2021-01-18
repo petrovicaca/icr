@@ -14,6 +14,8 @@ import { Profile2 } from '../../shared/login2.model';
 })
 export class SignupComponent implements OnInit {
 
+  hide = true;
+
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
