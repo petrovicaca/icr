@@ -133,6 +133,11 @@ footer div {
     display: block;
 }
 
+.dropdown h1 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .row {
     height: 200px;
 }
