@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
   addToCart(): void{
     if(CandyService.selectedCandy.name !== ""){
       CartService.selectedCart.candy.push(CandyService.selectedCandy);
+      CartService.money =  CartService.money + CandyService.selectedCandy.price;
     }
 
     this.cartSource        = new MatTableDataSource(CartService.selectedCart.candy);

@@ -11,6 +11,8 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class CartService {
 
+  static money: number = 0;
+
   static selectedCart: Cart = {
     name: "userCart",
     candy: []

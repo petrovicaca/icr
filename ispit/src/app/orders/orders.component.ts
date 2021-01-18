@@ -20,6 +20,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   displayedColumnsOrders = ["items", "price", "status", "actions"];
   displayedColumnsOrders2 = ["items", "price", "status", "actions"];
   editable: boolean = false;
+  money: Number = CartService.money;
 
   @ViewChild(MatSort) sort : MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator : MatPaginator;
@@ -58,6 +59,12 @@ export class OrdersComponent implements OnInit, AfterViewInit {
     this.ordersSource = new MatTableDataSource(this.orders);
   }
 
+  deleteOrderHistory(e): void{
+    //this.ordersService.selectedOrder.items.splice(e, 1);
+    OrdersService.orderHistory.splice(e, 1);
+    this.ordersSource2 = new MatTableDataSource(OrdersService.orderHistory);
+  }
+
 
   buy(): void{
 
@@ -75,6 +82,8 @@ export class OrdersComponent implements OnInit, AfterViewInit {
 
     this.ordersSource         = new MatTableDataSource(this.orders);
     OrdersService.orderSource = this.ordersSource;
+
+    this.cartSource = new MatTableDataSource();
   }
 
   edit(): void{
@@ -88,6 +97,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   finish(e): void{
     e.status = "finished";
     OrdersService.orderHistory.push(e);
+    this.ordersSource = new MatTableDataSource();
     this.ordersSource2 = new MatTableDataSource(OrdersService.orderHistory);
   }
 

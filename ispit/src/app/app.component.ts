@@ -3,6 +3,7 @@ import { MatDialog }          from '@angular/material/dialog';
 import { ProfileComponent }   from './profile/profile.component';
 import { LoginService }       from './shared/login.service';
 import { Profile }            from '../app/shared/login.model';
+import { CandyService } from './shared/candy.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,10 @@ export class AppComponent {
 
   ngOnInit(): void{
 
+  }
+
+  categorize(string: String){
+    CandyService.keyword = string;
   }
 
   openProfile() {
@@ -49,6 +54,8 @@ export class AppComponent {
       phone: "",
       loggedIn: 0
     }
+
+
 
     LoginService.selectedProfile = emptyProfile;
   }

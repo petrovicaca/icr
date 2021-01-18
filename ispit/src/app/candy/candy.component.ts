@@ -23,7 +23,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 
 export class CandyComponent implements OnInit, AfterViewInit {
 
-
+  keyword: String = CandyService.keyword;
 
   loggedIn: boolean = false;
 

@@ -33,6 +33,126 @@ bot.post('/', express.json(),(req, res) => {
         response: res
     });
 
+    function takeMeHome(agent){
+      var payload = {
+        "richContent": [
+          [
+            {
+              "type": "button",
+              "icon": {
+                "type": "chevron_right",
+                "color": "#FF9800"
+              },
+              "text": "Click here to go home",
+              "link": "http://localhost:4200",
+              "event": {
+                "name": "",
+                "languageCode": "",
+                "parameters": {}
+              }
+            }
+          ]
+        ]
+      }
+      agent.add(new dfff.Payload(agent.UNSPECIFIED, payload, {sendAsMessage: true, rawPayload: true}))
+    }
+
+    function takeMeHome(agent){
+      var payload = {
+        "richContent": [
+          [
+            {
+              "type": "button",
+              "icon": {
+                "type": "chevron_right",
+                "color": "#FF9800"
+              },
+              "text": "Click here to go home",
+              "link": "http://localhost:4200",
+              "event": {
+                "name": "",
+                "languageCode": "",
+                "parameters": {}
+              }
+            }
+          ]
+        ]
+      }
+      agent.add(new dfff.Payload(agent.UNSPECIFIED, payload, {sendAsMessage: true, rawPayload: true}))
+    }
+
+    function takeMeToLogin(agent){
+      var payload = {
+        "richContent": [
+          [
+            {
+              "type": "button",
+              "icon": {
+                "type": "chevron_right",
+                "color": "#FF9800"
+              },
+              "text": "Click here to go to login",
+              "link": "http://localhost:4200/login",
+              "event": {
+                "name": "",
+                "languageCode": "",
+                "parameters": {}
+              }
+            }
+          ]
+        ]
+      }
+      agent.add(new dfff.Payload(agent.UNSPECIFIED, payload, {sendAsMessage: true, rawPayload: true}))
+    }
+
+    function takeMeToSignup(agent){
+      var payload = {
+        "richContent": [
+          [
+            {
+              "type": "button",
+              "icon": {
+                "type": "chevron_right",
+                "color": "#FF9800"
+              },
+              "text": "Click here to sign up",
+              "link": "http://localhost:4200/signup",
+              "event": {
+                "name": "",
+                "languageCode": "",
+                "parameters": {}
+              }
+            }
+          ]
+        ]
+      }
+      agent.add(new dfff.Payload(agent.UNSPECIFIED, payload, {sendAsMessage: true, rawPayload: true}))
+    }
+
+    function takeMeToTheProducts(agent){
+      var payload = {
+        "richContent": [
+          [
+            {
+              "type": "button",
+              "icon": {
+                "type": "chevron_right",
+                "color": "#FF9800"
+              },
+              "text": "Click here to go to products page",
+              "link": "http://localhost:4200/candy",
+              "event": {
+                "name": "",
+                "languageCode": "",
+                "parameters": {}
+              }
+            }
+          ]
+        ]
+      }
+      agent.add(new dfff.Payload(agent.UNSPECIFIED, payload, {sendAsMessage: true, rawPayload: true}))
+    }
+
     function demoWebHook(agent){
         agent.add('Saljemo odgovor sa webhook servera');
     }
@@ -58,8 +178,12 @@ bot.post('/', express.json(),(req, res) => {
     }
 
     var intentMap = new Map();
-    intentMap.set('webendpoint', demoWebHook);
+    intentMap.set('demo', demoWebHook);
     intentMap.set('customIntent', customIntent);
+    intentMap.set('takeMeHome', takeMeHome);
+    intentMap.set('takeMeToLogin', takeMeToLogin);
+    intentMap.set('takeMeToSignup', takeMeToSignup);
+    intentMap.set('takeMeToTheProducts', takeMeToTheProducts);
 
     agent.handleRequest(intentMap);
 

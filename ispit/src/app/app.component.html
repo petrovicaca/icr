@@ -65,15 +65,15 @@
                     <a> Categories </a>
                     <div class="dropdown-content">
                         <div class="row">
-                            <a class="chocolate" routerLink="/candy">Chocolates</a>
-                            <a class="macarons" routerLink="/candy">Macarons</a>
-                            <a class="hcandy" routerLink="/candy">Hard candy</a>
+                            <a class="chocolate" routerLink="/candy" (click)="this.categorize('Chocolates')">Chocolates</a>
+                            <a class="macarons" routerLink="/candy" (click)="this.categorize('Macarons')">Macarons</a>
+                            <a class="hcandy" routerLink="/candy" (click)="this.categorize('Hard candy')">Hard candy</a>
                         </div>
 
                         <div class="row">
-                            <a class="sour" routerLink="/candy">Sour candy</a>
-                            <a class="canes" routerLink="/candy">Candy canes</a>
-                            <a class="gummies" routerLink="/candy">Gummies</a>
+                            <a class="sour" routerLink="/candy" (click)="this.categorize('Sour candy')">Sour candy</a>
+                            <a class="canes" routerLink="/candy" (click)="this.categorize('Candy canes')">Candy canes</a>
+                            <a class="gummies" routerLink="/candy" (click)="this.categorize('Gummies')">Gummies</a>
                         </div>
                     </div>
                 </div>
@@ -124,20 +124,20 @@
               </div>
 
               <div class="dropdown">
-                  <a routerLink="/candy"> Categories </a>
-                  <div class="dropdown-content">
+                <a> Categories </a>
+                <div class="dropdown-content">
                     <div class="row">
-                        <a class="chocolate" routerLink="/candy">Chocolates</a>
-                        <a class="macarons" routerLink="/candy">Macarons</a>
-                        <a class="hcandy" routerLink="/candy">Hard candy</a>
+                        <a class="chocolate" routerLink="/candy" (click)="this.categorize('Chocolates')">Chocolates</a>
+                        <a class="macarons" routerLink="/candy" (click)="this.categorize('Macarons')">Macarons</a>
+                        <a class="hcandy" routerLink="/candy" (click)="this.categorize('Hard candy')">Hard candy</a>
                     </div>
 
                     <div class="row">
-                        <a class="sour" routerLink="/candy">Sour candy</a>
-                        <a class="canes" routerLink="/candy">Candy canes</a>
-                        <a class="gummies" routerLink="/candy">Gummies</a>
+                        <a class="sour" routerLink="/candy" (click)="this.categorize('Sour candy')">Sour candy</a>
+                        <a class="canes" routerLink="/candy" (click)="this.categorize('Candy canes')">Candy canes</a>
+                        <a class="gummies" routerLink="/candy" (click)="this.categorize('Gummies')">Gummies</a>
                     </div>
-                  </div>
+                </div>
               </div>
 
               <div class="dropdown">
@@ -157,8 +157,8 @@
           <div fxFlex fxLayoutAlign="end" fxLayoutGap="15px" fxHide.xs>
               <a routerLink="/"> Home </a>
               <a routerLink="/candy"> Products </a>
-              <button mat-raised-button color="accent" (click)="openProfile()" > <mat-icon> person </mat-icon>  {{ loginService.getUserName() }} </button>
               <button mat-raised-button color="accent" routerLink="/orders"> <mat-icon> shopping_cart </mat-icon> Cart </button>
+              <button mat-raised-button color="accent" (click)="openProfile()" > <mat-icon> person </mat-icon>  {{ loginService.getUserName() }} </button>
               <a routerLink="/" (click)="logout()" routerLink="/"> Logout </a>
           </div>
       </mat-toolbar>

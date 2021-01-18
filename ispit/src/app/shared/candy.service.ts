@@ -10,6 +10,8 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class CandyService {
 
+  static keyword: String;
+
   static selectedCandy: Candy ={
     id: "",
     name: "",

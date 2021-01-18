@@ -42,7 +42,8 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header > Delete </mat-header-cell>
                 <mat-cell *matCellDef="let element" fxLayoutGap="15px">
 
-                    <button mat-raised-button color="accent" [disabled]="!this.editable" (click)="this.delete(element)"> <mat-icon>delete</mat-icon> </button>
+                    <button mat-raised-button color="accent" *ngIf="!this.editable" [disabled]="!this.editable" (click)="this.delete(element)"> Click edit to delete/Cancel to abort </button>
+                    <button mat-raised-button color="accent" *ngIf="this.editable" (click)="this.delete(element)"> <mat-icon>delete</mat-icon> </button>
                 </mat-cell>
             </ng-container>
 
@@ -60,7 +61,7 @@
             </div>
             <div fxLayoutAlign="end">
               <!-- FUNKCIJA KOJA RACUNA UKUPNU CENU I ISPISUJE JE OVDE-->
-              <h1> Total price: 200$</h1>
+              <h1> Total price: {{ this.money }}$</h1>
             </div>
             <div fxLayoutAlign="end" fxLayoutGap="9px">
               <button mat-raised-button color="accent" (click)="this.buy()"> Buy </button>
@@ -159,7 +160,7 @@
                 <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
                 <mat-cell *matCellDef="let element" fxLayoutGap="15px">
                     <button mat-raised-button color="accent"> Rate </button>
-                    <button mat-raised-button color="accent"> Delete </button>
+                    <button mat-raised-button color="accent" (click)="this.deleteOrderHistory(element)"> Delete </button>
                 </mat-cell>
             </ng-container>
 
