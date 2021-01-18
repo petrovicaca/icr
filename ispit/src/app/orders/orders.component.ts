@@ -8,6 +8,7 @@ import { CartService } from '../shared/cart.service';
 import { Order } from '../shared/orders.model';
 import { OrdersService } from '../shared/orders.service';
 import { CartComponent } from '../cart/cart.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-orders',
@@ -18,9 +19,12 @@ export class OrdersComponent implements OnInit, AfterViewInit {
 
   displayedColumnsCart = ["name", "category", "price", "actions"];
   displayedColumnsOrders = ["items", "price", "status", "actions"];
-  displayedColumnsOrders2 = ["items", "price", "status", "actions"];
+  displayedColumnsOrders2 = ["items", "price", "status", "rate", "actions"];
   editable: boolean = false;
   money: Number = CartService.money;
+
+  rateOpened = false;
+  currentRate = 0;
 
   @ViewChild(MatSort) sort : MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator : MatPaginator;
