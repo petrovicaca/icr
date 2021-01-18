@@ -13,6 +13,8 @@ import { Profile } from '../../shared/login.model';
 })
 export class SignupComponent implements OnInit {
 
+  hide = true;
+
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {

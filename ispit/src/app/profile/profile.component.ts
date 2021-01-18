@@ -16,6 +16,7 @@ declare var M: any;
 })
 export class ProfileComponent implements OnInit{
 
+  hide = true;
   isEditing: boolean = false;
   profileForInput: Profile = LoginService.selectedProfile;
   localId: String = LoginService.selectedProfile._id;
