@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 
 import { Profile } from './login.model';
-import { Profile2 } from './login.model';
+import { Profile2 } from './login2.model';
 
 @Injectable()
 export class LoginService {
@@ -31,7 +31,7 @@ export class LoginService {
     return LoginService.selectedProfile.firstname;
   }
 
-  postProfile(profile: Profile) {
+  postProfile(profile: Profile2) {
     return this.http.post(this.baseURL, profile);
   }
 
