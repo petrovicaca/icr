@@ -14,12 +14,14 @@ import { OrdersComponent } from './orders/orders.component';
 import { CandyService } from './shared/candy.service';
 import { LoginService } from './shared/login.service';
 import { OrdersService } from './shared/orders.service';
+import { CartService } from './shared/cart.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //------------------MATERIAL MODULES----------------------
 import { MatInputModule } from  '@angular/material/input';
@@ -36,7 +38,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-import { CartService } from './shared/cart.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { CartService } from './shared/cart.service';
     MatDialogModule,
     MatTabsModule,
     MDBBootstrapModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [LoginService, CandyService, OrdersService, CartService],
   bootstrap: [AppComponent],
